@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // https://www.youtube.com/watch?v=dnNCVcVS6uw
@@ -94,11 +96,25 @@ public class GrapplingGun : MonoBehaviour {
 
     void SetGrapplePoint() {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
-        if (Physics2D.Raycast(firePoint.position, distanceVector.normalized)) {
-            RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, distanceVector.normalized);
-            if (_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) {
-                if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance) {
-                    grapplePoint = _hit.point;
+        
+        List<RaycastHit2D> results = new();
+        ContactFilter2D filter = new();
+        int resultsCount = Physics2D.Raycast(firePoint.position, distanceVector.normalized, filter, results);
+        if (resultsCount > 0 && results.First().transform == gunHolder) {
+            results.RemoveAt(0);
+        }
+        bool hasAnyHit = results.Any();
+        
+        if (hasAnyHit) {
+            resultsCount = Physics2D.Raycast(firePoint.position, distanceVector.normalized, filter, results);
+            if (resultsCount > 0 && results.First().transform == gunHolder) {
+                results.RemoveAt(0);
+            }
+
+            RaycastHit2D hit = results.First();
+            if (hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) {
+                if (Vector2.Distance(hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance) {
+                    grapplePoint = hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
                 }
