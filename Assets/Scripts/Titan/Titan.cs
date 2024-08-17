@@ -33,6 +33,7 @@ namespace Titan
 
         private void OnAgro(bool agro)
         {
+            Debug.Log($"Titan {name} agro: {agro}");
             SetHandsFollowTarget(agro);
         }
 
