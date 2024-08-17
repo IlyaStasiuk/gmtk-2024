@@ -123,14 +123,14 @@ public class GrapplingGun : MonoBehaviour {
     }
 
     public void Grapple() {
-        m_springJoint2D.autoConfigureDistance = false;
+        //m_springJoint2D.autoConfigureDistance = false;
         if (!launchToPoint && !autoConfigureDistance) {
             m_springJoint2D.distance = targetDistance;
             m_springJoint2D.frequency = targetFrequncy;
         }
         if (!launchToPoint) {
             if (autoConfigureDistance) {
-                m_springJoint2D.autoConfigureDistance = true;
+                //m_springJoint2D.autoConfigureDistance = true;
                 m_springJoint2D.frequency = 0;
             }
 
