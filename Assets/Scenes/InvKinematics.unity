@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AgroRange: {fileID: 14444883}
-  Mouth: {fileID: 0}
+  Mouth: {fileID: 440258891}
   Hands:
   - {fileID: 929994203}
 --- !u!95 &2047648612

@@ -15,6 +15,12 @@ namespace Titan
         private float _timerLeft;
         private bool _canApplyDamage = false;
 
+        public void SetRagdoll(bool isRagdoll)
+        {
+            Animator.enabled = !isRagdoll;
+            enabled = !isRagdoll;
+        }
+
         private void Update()
         {
             if(_timerLeft > 0)
@@ -40,7 +46,7 @@ namespace Titan
             if (_canApplyDamage)
             {
                 Animator.SetTrigger("Bite");
-                player?.TakeDamage(Damage);
+                player.TakeDamage(Damage);
                 _canApplyDamage = false;
                 _timerLeft = OpenEverySeconds;
             }
