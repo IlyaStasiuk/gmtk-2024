@@ -128,7 +128,11 @@ public class GrapplingGun : MonoBehaviour {
         if (!launchToPoint && !autoConfigureDistance)
         {
             Vector2 jointPos = joint.transform.position;
-            joint.distance = (grapplePoint - jointPos).magnitude;
+            Vector2 direction = (grapplePoint - jointPos);
+            float distance = direction.magnitude;
+            joint.distance = distance;
+            Vector2 grappleForce = direction.normalized * (distance * 0.85f);
+            m_rigidbody.AddForce(grappleForce, ForceMode2D.Impulse);
             //joint.frequency = targetFrequncy;
         }
         if (!launchToPoint) {

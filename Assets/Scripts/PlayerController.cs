@@ -27,34 +27,28 @@ public class PlayerController : MonoBehaviour {
         ContactFilter2D filter = new();
         Physics2D.Raycast(_rb.position, Vector2.down * 0.5f,filter, results, 0.5f);
 
-        bool hasAnyHit = results.Any(item => item.transform != _rb.transform);
+        //bool hasAnyHit = results.Any(item => item.transform != _rb.transform);
         float move = InputDirection.x;
-        Vector2 playerMovement = new Vector2(move * 30, 0);
+        Vector2 playerMovement = new Vector2(move * 5, 0);
 
-        if (hasAnyHit)
-        {
-            float velocityMagnitude = _rb.velocity.magnitude;
-            float deltaMagnitude = playerMovement.magnitude - velocityMagnitude;
+        float velocityMagnitude = _rb.velocity.magnitude;
+        //float deltaMagnitude = playerMovement.magnitude - velocityMagnitude;
             
-            if (deltaMagnitude < 0) {
-                deltaMagnitude = 0.2f / (Mathf.Abs(deltaMagnitude) + 1);
-            } else {
-                deltaMagnitude = Mathf.Max(deltaMagnitude, 0.1f);
-            }
+        // if (deltaMagnitude < 0) {
+        //     deltaMagnitude = 10 / (Mathf.Abs(deltaMagnitude) + 1);
+        // } else {
+        //     //deltaMagnitude = Mathf.Max(deltaMagnitude, 0.1f);
+        // }
             
-            playerMovement = playerMovement.normalized* deltaMagnitude;
-            _rb.AddForce(playerMovement, ForceMode2D.Force);
-        }
-        else
+        //playerMovement = playerMovement.normalized* deltaMagnitude;
+        _rb.AddForce(playerMovement, ForceMode2D.Force);
+            
+        if (shiftDown)
         {
-
-            if (shiftDown)
-            {
-                shiftDown = false;
-                Vector2 force = InputDirection;
-                force = force.normalized * 20.0f;
-                _rb.AddForce(force,ForceMode2D.Impulse);
-            }
+            shiftDown = false;
+            Vector2 force = InputDirection;
+            force = force.normalized * 20.0f;
+            _rb.AddForce(force,ForceMode2D.Impulse);
         }
 
 
