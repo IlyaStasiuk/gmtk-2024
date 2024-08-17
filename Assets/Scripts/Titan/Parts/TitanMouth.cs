@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Titan
 {
-    public class TitanMouth : DamagableArea
+    public class TitanMouth : DamageEffectArea
     {
         public Animator Animator;
         public float OpenEverySeconds = 5f;
@@ -19,11 +19,14 @@ namespace Titan
         {
             Animator.enabled = !isRagdoll;
             enabled = !isRagdoll;
+
+            if (_canApplyDamage)
+                CloseMouth();
         }
 
         private void Update()
         {
-            if(_timerLeft > 0)
+            if (_timerLeft > 0)
             {
                 _timerLeft -= Time.deltaTime;
                 return;
@@ -41,7 +44,7 @@ namespace Titan
             }
         }
 
-        protected override void TryApplyDamage(Player player)
+        protected override void TryApplyDamage(TestPlayer player)
         {
             if (_canApplyDamage)
             {

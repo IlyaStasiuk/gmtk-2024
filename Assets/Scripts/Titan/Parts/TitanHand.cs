@@ -10,6 +10,7 @@ namespace Titan
         public Animator Animator;
         public IKManager2D IKManager;
         public Transform Target;
+
         public List<Collider2D> RagdollColliders;
         public List<Joint2D> RagdollJoints;
 

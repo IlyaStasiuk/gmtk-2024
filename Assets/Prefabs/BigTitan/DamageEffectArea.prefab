@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4572821530471606402}
   - component: {fileID: 4909656469349856029}
   m_Layer: 0
-  m_Name: DamagableArea
+  m_Name: DamageEffectArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
