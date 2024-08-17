@@ -12,22 +12,22 @@ namespace Titan
         {
             if (other.CompareTag("Player"))
             {
-                TryApplyDamage(other.GetComponent<Player>());
+                TryApplyDamage(new Player());
             }
         }
 
         protected virtual void TryApplyDamage(Player player)
         {
             Debug.Log("Player is in damage area");
-            player?.TakeDamage(Damage);
+            player.TakeDamage(Damage);
         }
 
         //temp mock class, TODO replace by real
-        public class Player : MonoBehaviour
+        public class Player
         {
             public void TakeDamage(float damage)
             {
-                
+                Debug.Log($"Player take damage: {damage}");
             }
         }
     }
