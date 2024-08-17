@@ -26,17 +26,17 @@ namespace Titan
             Debug.Log("Player died");
         }
 
-        // private void OnTriggerEnter2D(Collider2D other)
-        // {
-        //     if (other.CompareTag("Titan"))
-        //     {
-        //         var weakSpot = other.GetComponent<TitanWeakSpot>();
-        //         if (weakSpot != null)
-        //         {
-        //             Debug.Log($"Player hit weak spot ({weakSpot.name}) of titan {other.name}");
-        //             weakSpot.TakeDamage(Damage);
-        //         }
-        //     }
-        // }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Titan"))
+            {
+                var weakSpot = other.GetComponent<TitanWeakSpot>();
+                if (weakSpot != null)
+                {
+                    Debug.Log($"Player hit weak spot ({weakSpot.name}) of titan {other.name}");
+                    weakSpot.TakeDamage(Damage);
+                }
+            }
+        }
     }
 }

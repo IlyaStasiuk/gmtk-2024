@@ -8,12 +8,23 @@ namespace Titan
 {
     public class Titan : MonoBehaviour
     {
+        public Animator Animator;
         public TitanAgroRange AgroRange;
         public TitanMouth Mouth;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
 
-        public float NormalizedHealth => DestroyableTitanParts.Where(it => it != null).Average(it => it.NormalizedHealth);
+        [ShowNativeProperty]
+        public float NormalizedHealth
+        {
+            get
+            {
+                var parts = DestroyableTitanParts.Where(it => it != null).ToList();
+                if (parts.Any())
+                    parts.Average(it => it.NormalizedHealth);
+                return 0;
+            }
+        }
 
         protected IEnumerable<IDestroyableTitanPart> DestroyableTitanParts => WeakSpots/*.Concat(Hands) TODO?*/;
 
@@ -47,6 +58,7 @@ namespace Titan
             foreach (var hand in Hands)
                 hand.SetRagdoll(isRagdoll);
 
+            Animator.enabled = !isRagdoll;
             AgroRange.enabled = !isRagdoll;
             enabled = !isRagdoll;
         }
@@ -58,8 +70,12 @@ namespace Titan
         }
 
         [Button]
-        public void Kill() => SetRagdoll(true);
-        
+        public void Kill()
+        {
+            Debug.Log($"Titan {name} died");
+            SetRagdoll(true);
+        }
+
         [Button]
         public void Revive() => SetRagdoll(false);
     }

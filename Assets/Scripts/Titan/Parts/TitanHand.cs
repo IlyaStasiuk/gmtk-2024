@@ -16,6 +16,9 @@ namespace Titan
 
         public void SetIsFollowTarget(bool follow)
         {
+            if (!enabled)
+                return;
+
             IKManager.enabled = follow;
             Animator.enabled = !follow;
         }

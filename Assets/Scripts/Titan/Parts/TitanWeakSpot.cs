@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 
 
@@ -42,6 +43,7 @@ namespace Titan
             OnPartDestroy?.Invoke();
         }
 
+        [Button]
         private void PlayHitAnimation()
         {
             _spriteRenderer.DOFlashAnimation().Play();
