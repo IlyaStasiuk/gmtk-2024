@@ -6,13 +6,14 @@ namespace Titan
 {
     public class TitanAgroRange : MonoBehaviour
     {
-        public event Action<bool> OnAgro;
+        public event Action<PlayerTitanAttacker> OnAgro;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
-                OnAgro?.Invoke(true);
+                if (other.TryGetComponent<PlayerTitanAttacker>(out var player))
+                    OnAgro?.Invoke(player);
             }
         }
 
@@ -20,7 +21,8 @@ namespace Titan
         {
             if (other.CompareTag("Player"))
             {
-                OnAgro?.Invoke(false);
+                if (other.TryGetComponent<PlayerTitanAttacker>(out _))
+                    OnAgro?.Invoke(null);
             }
         }
     }

@@ -12,12 +12,12 @@ namespace Titan
         {
             if (other.CompareTag("Player"))
             {
-                var player = other.GetComponent<TestPlayer>();
+                var player = other.GetComponent<PlayerTitanAttacker>();
                 TryApplyDamage(player);
             }
         }
 
-        protected virtual void TryApplyDamage(TestPlayer player)
+        protected virtual void TryApplyDamage(PlayerTitanAttacker player)
         {
             Debug.Log("Player is in damage area");
             player.TakeDamage(Damage);

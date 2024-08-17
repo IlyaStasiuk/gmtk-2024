@@ -44,7 +44,7 @@ namespace Titan
             }
         }
 
-        protected override void TryApplyDamage(TestPlayer player)
+        protected override void TryApplyDamage(PlayerTitanAttacker player)
         {
             if (_canApplyDamage)
             {

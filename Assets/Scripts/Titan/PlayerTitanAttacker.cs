@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Titan
 {
-    public class TestPlayer : MonoBehaviour
+    public class PlayerTitanAttacker : MonoBehaviour
     {
         public float Health = 100f;
         public float Damage = 10f;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.U2D.IK;
 
@@ -14,13 +15,17 @@ namespace Titan
         public List<Collider2D> RagdollColliders;
         public List<Joint2D> RagdollJoints;
 
-        public void SetIsFollowTarget(bool follow)
+        public void SetIsFollowTarget(PlayerTitanAttacker player)
         {
             if (!enabled)
                 return;
 
-            IKManager.enabled = follow;
-            Animator.enabled = !follow;
+            bool playerAsTargetExists = player != null;
+            Target.SetParent(playerAsTargetExists ? player.transform : transform);
+            Target.localPosition = Vector3.zero;
+
+            IKManager.enabled = playerAsTargetExists;
+            Animator.enabled = !playerAsTargetExists;
         }
 
         public void SetRagdoll(bool isRagdoll)

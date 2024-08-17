@@ -36,16 +36,16 @@ namespace Titan
                 weakSpot.OnPartDestroy += OnWeakSpotDie;
         }
 
-        public void SetHandsFollowTarget(bool follow)
+        public void SetHandsFollowTarget(PlayerTitanAttacker player)
         {
             foreach (var hand in Hands)
-                hand.SetIsFollowTarget(follow);
+                hand.SetIsFollowTarget(player);
         }
 
-        private void OnAgro(bool agro)
+        private void OnAgro(PlayerTitanAttacker player)
         {
-            Debug.Log($"Titan {name} agro: {agro}");
-            SetHandsFollowTarget(agro);
+            Debug.Log($"Titan {name} agro: {player?.name}");
+            SetHandsFollowTarget(player);
         }
 
         private void SetRagdoll(bool isRagdoll)
