@@ -21,7 +21,8 @@ namespace Titan
             {
                 var parts = DestroyableTitanParts.Where(it => it != null).ToList();
                 if (parts.Any())
-                    parts.Average(it => it.NormalizedHealth);
+                    return parts.Average(it => it.NormalizedHealth);
+
                 return 0;
             }
         }
