@@ -6,7 +6,7 @@ public class PlatformMover : MonoBehaviour
     public Vector2 moveDirection = Vector2.right; // Direction of movement
     // public AnimationCurve speedCurve; // Speed curve to control movement speed
     public float cycleDuration = 2f; // Time to complete a full back-and-forth cycle
-
+    public float rotationSpeed = 0f;
     private float elapsedTime = 0f; // Time elapsed in the current cycle
 
     void Start()
@@ -38,5 +38,7 @@ public class PlatformMover : MonoBehaviour
 
         // Move the Rigidbody2D
         rb.MovePosition(rb.position + movement);
+
+        rb.MoveRotation(rb.rotation + rotationSpeed);
     }
 }
