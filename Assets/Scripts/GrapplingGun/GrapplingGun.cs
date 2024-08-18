@@ -40,6 +40,7 @@ namespace New
         [SerializeField] private float targetDistance = 3;
         [SerializeField] private float targetFrequency = 3;
 
+        [SerializeField] private ParticleSystem fireEffect;
 
         private enum LaunchType
         {
@@ -62,6 +63,7 @@ namespace New
 
         private void Start()
         {
+            if(m_camera == null) { m_camera = Camera.main; }
             grappleRope.enabled = false;
             m_springJoint2D.enabled = false;
             ballRigidbody.gravityScale = 1;
@@ -162,6 +164,7 @@ namespace New
                 {
                     grapplePoint = hit.point;
                     grappleRope.enabled = true;
+                    fireEffect.Play();
                     break;
                 }
             }
