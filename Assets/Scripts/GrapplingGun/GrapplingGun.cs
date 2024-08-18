@@ -40,6 +40,9 @@ namespace New
         [SerializeField] private float targetDistance = 3;
         [SerializeField] private float targetFrequency = 3;
 
+        private Rigidbody2D attachToBody;
+        private Vector3 attachToBodyLastPosition;
+
 
         private enum LaunchType
         {
@@ -94,6 +97,15 @@ namespace New
                     }
                 }
 
+                if (attachToBody)
+                {
+                    Vector3 delta = attachToBody.transform.position - attachToBodyLastPosition;
+
+                    m_springJoint2D.connectedAnchor += (Vector2)delta;
+                    grapplePoint += (Vector2)delta;
+                    
+                    attachToBodyLastPosition = attachToBody.transform.position;
+                }
             }
             else if (Input.GetKeyUp(Button))
             {
@@ -162,6 +174,8 @@ namespace New
                 {
                     grapplePoint = hit.point;
                     grappleRope.enabled = true;
+                    attachToBody = hit.rigidbody;
+                    attachToBodyLastPosition = hit.rigidbody.transform.position;
                     break;
                 }
             }

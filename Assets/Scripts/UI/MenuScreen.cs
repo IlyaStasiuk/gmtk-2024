@@ -120,10 +120,10 @@ namespace Menu
                     cgMenuButtons.alpha = 0.0f;
                     //buttonsCanvasGroup.interactable = false;
                 })
-                .Append(txtGameTitle.DOFade(1.0f, 1.0f).SetEase(Ease.OutQuad))
-                .Join(rtGameTitle.DOAnchorPos(game_name_anchored_pos, tweenDuration/2.0f).SetEase(Ease.OutQuad))
-                .Append(rtMenuButtons.DOAnchorPos(buttons_anchored_pos, tweenDuration/2.0f).SetEase(Ease.OutQuad))
-                .Join(cgMenuButtons.DOFade(1.0f, 1.0f).SetEase(Ease.OutQuad))
+                .Append(txtGameTitle.DOFade(1.0f, 1.0f).SetEase(tweenEase))
+                .Join(rtGameTitle.DOAnchorPos(game_name_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase))
+                .Append(rtMenuButtons.DOAnchorPos(buttons_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase))
+                .Join(cgMenuButtons.DOFade(1.0f, 1.0f).SetEase(tweenEase))
                 .AppendCallback(
                     () => {
                         //buttonsCanvasGroup.interactable = true;

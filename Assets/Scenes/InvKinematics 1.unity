@@ -383,7 +383,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   movementSpeed: -3
   movementDistance: 120
-  spawnAtX: 60
+  spawnAtX: 30
 --- !u!4 &507874796
 Transform:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353733616436430041, guid: 5875888ddb1c9794b9d0759889373f54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.21
+      value: 26.83
       objectReference: {fileID: 0}
     - target: {fileID: 4353733616436430041, guid: 5875888ddb1c9794b9d0759889373f54, type: 3}
       propertyPath: m_LocalPosition.y
