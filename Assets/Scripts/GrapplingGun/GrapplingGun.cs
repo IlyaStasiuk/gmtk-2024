@@ -153,15 +153,17 @@ namespace New
 
             if (hits.Count == 0) return;
 
-            RaycastHit2D hit = hits[0];
-
-            bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)grappableLayers) != 0;
-            bool distanceCheck = (Vector2.Distance(hit.point, firePoint.position) <= maxDistance) || !hasMaxDistance;
-
-            if (layerCheck && distanceCheck)
+            foreach (var hit in hits)
             {
-                grapplePoint = hit.point;
-                grappleRope.enabled = true;
+                bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)grappableLayers) != 0;
+                bool distanceCheck = (Vector2.Distance(hit.point, firePoint.position) <= maxDistance) || !hasMaxDistance;
+
+                if (layerCheck && distanceCheck)
+                {
+                    grapplePoint = hit.point;
+                    grappleRope.enabled = true;
+                    break;
+                }
             }
         }
 

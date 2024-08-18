@@ -99,6 +99,8 @@ public class GrapplingGun : MonoBehaviour {
 
     void SetGrapplePoint() {
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
+
+        Debug.Log("VAR");
         
         List<RaycastHit2D> results = new();
         ContactFilter2D filter = new();
