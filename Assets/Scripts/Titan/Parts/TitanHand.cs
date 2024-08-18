@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.U2D.IK;
@@ -11,8 +12,10 @@ namespace Titan
         public Animator Animator;
         public IKManager2D IKManager;
         public Transform Target;
-
+        [Space]
+        public Rigidbody2D RBOfJoinTOBody;
         public List<Collider2D> RagdollColliders;
+        public List<Rigidbody2D> RagdollRigidbodys;
         public List<Joint2D> RagdollJoints;
 
         public void SetIsFollowTarget(PlayerTitanAttacker player)
@@ -33,12 +36,12 @@ namespace Titan
             Animator.enabled = !isRagdoll;
             IKManager.enabled = !isRagdoll;
             enabled = !isRagdoll;
+            RBOfJoinTOBody.simulated = isRagdoll;
 
-            foreach (var ragdollCollider in RagdollColliders)
-                ragdollCollider.enabled = isRagdoll;
-
-            foreach (var ragdollJoint in RagdollJoints)
-                ragdollJoint.enabled = isRagdoll;
+            GetComponents<DamageEffectArea>().ToList().ForEach(it => it.enabled = !isRagdoll);
+            RagdollRigidbodys.ForEach(it => it.simulated = isRagdoll);
+            RagdollColliders.ForEach(it => it.isTrigger = !isRagdoll);
+            RagdollJoints.ForEach(it => it.enabled = isRagdoll);
         }
     }
 }

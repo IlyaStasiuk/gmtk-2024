@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 
     private bool shiftDown;
     private Vector2 InputDirection;
+    [SerializeField] private Collider2D thisCollider;
+    [SerializeField] private List<DistanceJoint2D> joints;
 
     private void Update()
     {
@@ -47,12 +49,12 @@ public class PlayerController : MonoBehaviour {
         {
             shiftDown = false;
             Vector2 force = InputDirection;
-            force = force.normalized * 20.0f;
+            force = force.normalized * 10.0f;
             _rb.AddForce(force,ForceMode2D.Impulse);
         }
 
+        bool isGrappling = joints.Any(joint => joint.enabled);
 
-        //Debug.Log(playerMovement.magnitude);
-
+        thisCollider.isTrigger = isGrappling;
     }
 }
