@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TanyaSpine
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: T_Pelves
+    m_Weight: 0
+  - m_Path: T_Pelves/T_LLeg1
+    m_Weight: 0
+  - m_Path: T_Pelves/T_LLeg1/T_LLeg2
+    m_Weight: 0
+  - m_Path: T_Pelves/T_LLeg1/T_LLeg2/T_LLegAnkle
+    m_Weight: 0
+  - m_Path: T_Pelves/T_RLeg1
+    m_Weight: 0
+  - m_Path: T_Pelves/T_RLeg1/T_RLeg2
+    m_Weight: 0
+  - m_Path: T_Pelves/T_RLeg1/T_RLeg2/T_RLegAnkle
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_LArmCollarbone
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_LArmCollarbone/T_LArm1
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_LArmCollarbone/T_LArm1/T_LArm2
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_LArmCollarbone/T_LArm1/T_LArm2/T_LArmPalm
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_Neck
+    m_Weight: 1
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_Neck/T_Head
+    m_Weight: 1
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_RArmCollarbone
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_RArmCollarbone/T_RArm1
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_RArmCollarbone/T_RArm1/T_RArm2
+    m_Weight: 0
+  - m_Path: T_Pelves/T_Spine1/T_Spine2/T_Chest/T_RArmCollarbone/T_RArm1/T_RArm2/T_RArmPalm
+    m_Weight: 0
+  - m_Path: TanyaMesh
+    m_Weight: 0
+  - m_Path: TanyaMeshOutline
+    m_Weight: 0
