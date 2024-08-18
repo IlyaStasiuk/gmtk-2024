@@ -176,6 +176,7 @@ MonoBehaviour:
   _grappableLayers:
     serializedVersion: 2
     m_Bits: 8
+  _fireEffect: {fileID: 720485139056240694, guid: ea4b42ec5c6d60840a1c17dab77499a3, type: 3}
 --- !u!50 &7389435097609231423
 Rigidbody2D:
   serializedVersion: 4
@@ -355,9 +356,9 @@ MonoBehaviour:
   _lineRenderer: {fileID: 6148848368427353404}
   _start: {fileID: 7506896364247244710}
   _end: {fileID: 8411978611406082220}
-  _pointCount: 50
+  _pointCount: 120
   _ropeDrag: 0.6
-  _ropeOffsetSpeed: 1
+  _ropeOffsetDrag: 1
   _straighteningSpeed: 3
   _curve:
     serializedVersion: 2
@@ -517,8 +518,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _sinWaveSize: 0.5
-  _sinFrequency: 10
+  _sinWaveSize: 0.8
+  _sinFrequency: 5
   _sinSmoothStart: 1
   _sinSmoothEnd: 1
 --- !u!120 &6148848368427353404
@@ -675,8 +676,8 @@ MonoBehaviour:
   _gunPivot: {fileID: 129756188581117507}
   _grapplingHook: {fileID: 7968901558273334819}
   _grapplingSping: {fileID: 9186609098684317386}
-  _launchDistance: 30
-  Button: 323
+  _launchDistance: 50
+  _leftButton: 1
   rotateOverTime: 0
   rotationSpeed: 12.9
 --- !u!114 &9186609098684317386
@@ -694,5 +695,5 @@ MonoBehaviour:
   _springJoint: {fileID: 0}
   _targetRigidbody: {fileID: 0}
   _grapplePoint: {fileID: 8411978611406082220}
-  _launchSpeed: 0.2
+  _launchSpeed: 0.4
   _disableSpringDistance: 1

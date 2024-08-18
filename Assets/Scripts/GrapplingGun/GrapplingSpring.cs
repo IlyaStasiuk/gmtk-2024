@@ -88,6 +88,13 @@ public class GrapplingSpring : MonoBehaviour
         _springJoint.distance = 0;
         _springJoint.frequency = _launchSpeed;
         _springJoint.enabled = true;
+
+        // float speed = _targetRigidbody.velocity.magnitude;
+        // Vector2 direction = ((Vector2)_grapplePoint.position - _targetRigidbody.position).normalized;
+        // _targetRigidbody.velocity = direction * speed;
+
+        // _targetRigidbody.gravityScale = 0;
+
         // }
 
         // }

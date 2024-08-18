@@ -24,6 +24,7 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField] float _launchSpeed = 3f;
     [SerializeField] float _retractSpeed = 1f;
     [SerializeField] private LayerMask _grappableLayers;
+    [SerializeField] private ParticleSystem _fireEffect;
 
     HookState _state;
     Vector2 _flyingDirection;
@@ -34,6 +35,11 @@ public class GrapplingHook : MonoBehaviour
     float CurrentDistance => Vector2.Distance(_origin.position, transform.position);
 
     public HookState State => _state;
+
+    void Awake()
+    {
+        transform.parent = null;
+    }
 
     void Start()
     {
@@ -105,6 +111,8 @@ public class GrapplingHook : MonoBehaviour
         _grapplingRope.Straighten();
 
         transform.position = hit.point;
+
+        if (_fireEffect) _fireEffect.Play();
     }
 
     void Reset()
@@ -164,6 +172,9 @@ public class GrapplingHook : MonoBehaviour
             {
                 float distance = Vector2.Distance(hit.point, _origin.position);
                 if (_nearClippingPlane > distance) validHit = false;
+
+                bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)_grappableLayers) != 0;
+                if (!layerCheck) validHit = false;
             }
 
             if (validHit) break;
@@ -173,8 +184,7 @@ public class GrapplingHook : MonoBehaviour
         if (currentIndex < hitCount)
         {
             RaycastHit2D hit = _hitsCache[currentIndex];
-            bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)_grappableLayers) != 0;
-            if (layerCheck) return hit;
+            return hit;
         }
 
         return null;
