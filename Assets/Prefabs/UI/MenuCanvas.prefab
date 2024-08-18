@@ -4179,7 +4179,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 24.1
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -9088,11 +9088,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930693210638775467, guid: e83f601667263ec49a98ac2ee5466caa, type: 3}
       propertyPath: m_Pivot.x
-      value: -0.00000002514571
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3930693210638775467, guid: e83f601667263ec49a98ac2ee5466caa, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0.5000005
       objectReference: {fileID: 0}
     - target: {fileID: 3930693210638775467, guid: e83f601667263ec49a98ac2ee5466caa, type: 3}
       propertyPath: m_RootOrder
