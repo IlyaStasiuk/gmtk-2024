@@ -50,7 +50,7 @@ public class EndlessScroller : MonoBehaviour
             Vector3 delta = new Vector3(deltaMovementSpeed, 0, 0);
 
             scrollerInstance.instance.transform.position += delta;
-            scrollerInstance.movementLeft -= Mathf.Abs(deltaMovementSpeed + positionDelta.x);
+            scrollerInstance.movementLeft -= (Mathf.Abs(deltaMovementSpeed) + (-positionDelta.x));
 
             instances[i] = scrollerInstance;
             
