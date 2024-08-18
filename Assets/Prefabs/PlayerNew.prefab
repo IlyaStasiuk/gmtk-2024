@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 6133540444303942420}
   - component: {fileID: 6771852688091460222}
   - component: {fileID: 5984815222229211973}
+  - component: {fileID: 9212787544968318114}
   m_Layer: 6
   m_Name: PlayerNew
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +280,20 @@ SpringJoint2D:
   m_Distance: 0.005
   m_DampingRatio: 0.25
   m_Frequency: 0
+--- !u!114 &9212787544968318114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386308992846204692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300d005aa5be4737bef7a5eaa7b0c603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  Damage: 10
 --- !u!1001 &2855608604994746134
 PrefabInstance:
   m_ObjectHideFlags: 0
