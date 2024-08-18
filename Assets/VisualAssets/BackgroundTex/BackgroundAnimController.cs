@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundAnimController : MonoBehaviour
 {
     [SerializeField] private Animator[] animator;
+    Camera cam;
 
     private void Awake()
     {
@@ -13,5 +14,11 @@ public class BackgroundAnimController : MonoBehaviour
             AnimatorClipInfo state = animator[i].GetCurrentAnimatorClipInfo(0)[0];
             animator[i].Play("idle", 0, 1f /( i+1)); ;
         }
+        cam = Camera.main;
+    }
+
+    private void Update()
+    {
+        Shader.SetGlobalFloat("_CamPosX", cam.transform.position.x);
     }
 }
