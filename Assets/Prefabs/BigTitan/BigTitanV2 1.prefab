@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Weight
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 3847190346178593125, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+      propertyPath: DurationToAttackPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4101800126238973020, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_BodyType
       value: 1
