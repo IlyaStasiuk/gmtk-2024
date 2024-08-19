@@ -21,19 +21,22 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField] List<GameObject> _ignoredObjects;
     // [SerializeField] private float maxDistance = 4;
     [SerializeField] private float _nearClippingPlane = 1f;
-    [SerializeField] float _launchSpeed = 3f;
-    [SerializeField] float _retractSpeed = 1f;
+    [SerializeField] AnimationCurve _flyingSpeed;
+    [SerializeField] float _flyinghSpeedMultiplier = 3f;
+    [SerializeField] AnimationCurve _retractSpeed;
+    [SerializeField] float _retractSpeedMultiplier = 1f;
     [SerializeField] private LayerMask _grappableLayers;
     [SerializeField] private ParticleSystem _fireEffect;
 
     HookState _state;
     Vector2 _flyingDirection;
     RaycastHit2D _grappleHit;
+    float _retractDistanceLeft;
 
     RaycastHit2D[] _hitsCache = new RaycastHit2D[16];
 
     float CurrentDistance => Vector2.Distance(_origin.position, transform.position);
-
+    float MaxDistance => _grapplingRope.MaxLength;
     public HookState State => _state;
 
     void Awake()
@@ -91,6 +94,8 @@ public class GrapplingHook : MonoBehaviour
         // _grapplingRope.disableDrag = false;
         _grapplingRope.SetCurve();
 
+        _retractDistanceLeft = CurrentDistance;
+
         // _state = false;
         // _rb.velocity = Vector2.zero;
     }
@@ -125,6 +130,8 @@ public class GrapplingHook : MonoBehaviour
         transform.position = _origin.position;
 
         _grapplingRope.Clear();
+
+        _retractDistanceLeft = 0f;
     }
 
     void UpdateFlying()
@@ -133,7 +140,8 @@ public class GrapplingHook : MonoBehaviour
         Debug.Assert(_state == HookState.Flying, _state);
 
         Vector2 prevPosition = transform.position;
-        Vector2 raycastVector = _launchSpeed * _flyingDirection.normalized;
+        float speed = _flyingSpeed.Evaluate(CurrentDistance / MaxDistance) * _flyinghSpeedMultiplier;
+        Vector2 raycastVector = speed * Time.deltaTime * _flyingDirection.normalized;
 
         // Debug.Log("UpdateFlying");
 
@@ -200,11 +208,15 @@ public class GrapplingHook : MonoBehaviour
     {
         Debug.Assert(_state == HookState.Retracting, _state);
 
-        Vector2 retractDirection = _origin.position - transform.position;
-        Vector2 retractVector = retractDirection.normalized * _retractSpeed;
-        float distanceLeft = Vector2.Distance(_origin.position, transform.position);
+        float speed = _retractSpeed.Evaluate(_retractDistanceLeft / MaxDistance) * _retractSpeedMultiplier;
+        float retractDistance = Time.deltaTime * speed;
+        _retractDistanceLeft -= retractDistance;
 
-        if (distanceLeft <= 1f || distanceLeft <= retractVector.magnitude) Reset();
-        else transform.position += (Vector3)retractVector;
+        if (_retractDistanceLeft <= 1f) Reset();
+        else
+        {
+            Vector2 currentDirection = (transform.position - _origin.position).normalized;
+            transform.position = _origin.position + (Vector3)currentDirection * _retractDistanceLeft;
+        }
     }
 }

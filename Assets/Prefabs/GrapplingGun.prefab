@@ -171,8 +171,56 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 5766855484842308995}
   _nearClippingPlane: 1
-  _launchSpeed: 3
-  _retractSpeed: 1.5
+  _flyingSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.25
+      inSlope: -1.7252173
+      outSlope: -1.7252173
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.060483873
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flyinghSpeedMultiplier: 200
+  _retractSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1.0054349
+      inSlope: -0.049050767
+      outSlope: -0.049050767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16801077
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _retractSpeedMultiplier: 100
   _grappableLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -476,48 +524,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _curveWaveSize: 2
-  _sinWaveSmoothCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: -0.005432129
-      inSlope: 7.3732853
-      outSlope: 7.3732853
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.045807652
-    - serializedVersion: 3
-      time: 0.2219394
-      value: 0.9920297
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.81317204
-      value: 0.98091346
-      inSlope: 0.0033977241
-      outSlope: 0.0033977241
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -5.795649
-      outSlope: -5.795649
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.080454245
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _sinWaveSize: 0.8
   _sinFrequency: 5
   _sinSmoothStart: 1

@@ -40,7 +40,7 @@ public class GrapplingDash : MonoBehaviour
             _targetRigidbody.velocity = Vector2.Lerp(_targetRigidbody.velocity, targetVelocity, Time.deltaTime * _velocityChangeSpeed);
             _targetRigidbody.AddForce(middleDirection * _dashForce, ForceMode2D.Force);
 
-            Debug.DrawRay(gunPosition, middleDirection * speed, Color.red);
+            // Debug.DrawRay(gunPosition, middleDirection * speed, Color.red);
         }
     }
 }
