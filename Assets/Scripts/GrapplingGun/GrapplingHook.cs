@@ -14,8 +14,6 @@ public class GrapplingHook : MonoBehaviour
     }
 
     [SerializeField] GrapplingRope _grapplingRope;
-    [SerializeField] Rigidbody2D _rigidbody;
-    [SerializeField] FixedJoint2D _joint;
     [SerializeField] Transform _origin;
 
     [SerializeField] List<GameObject> _ignoredObjects;
@@ -31,6 +29,7 @@ public class GrapplingHook : MonoBehaviour
     HookState _state;
     Vector2 _flyingDirection;
     RaycastHit2D _grappleHit;
+    Vector3 _grappleOffset;
     float _retractDistanceLeft;
 
     RaycastHit2D[] _hitsCache = new RaycastHit2D[16];
@@ -75,7 +74,6 @@ public class GrapplingHook : MonoBehaviour
         _flyingDirection = direction;
         transform.position = _origin.position;
 
-        // _grapplingRope.disableDrag = true;
         _grapplingRope.SetSinWave();
     }
 
@@ -87,17 +85,10 @@ public class GrapplingHook : MonoBehaviour
         _state = HookState.Retracting;
 
         _grappleHit = default;
-        _rigidbody.simulated = false;
-        _joint.connectedBody = null;
-        _joint.enabled = false;
 
-        // _grapplingRope.disableDrag = false;
         _grapplingRope.SetCurve();
 
         _retractDistanceLeft = CurrentDistance;
-
-        // _state = false;
-        // _rb.velocity = Vector2.zero;
     }
 
     void Grapple(RaycastHit2D hit)
@@ -108,14 +99,14 @@ public class GrapplingHook : MonoBehaviour
         _state = HookState.Grappled;
 
         _grappleHit = hit;
-        _rigidbody.simulated = true;
-        _joint.connectedBody = hit.rigidbody;
-        _joint.enabled = true;
-
-        // _grapplingRope.disableDrag = true;
-        _grapplingRope.Straighten();
-
         transform.position = hit.point;
+
+        Transform target = hit.collider.transform;
+        _grappleOffset = target.InverseTransformPoint(transform.position);
+
+        // Debug.DrawLine(target.position, transform.position, Color.green, 5f);
+
+        _grapplingRope.Straighten();
 
         if (_fireEffect) _fireEffect.Play();
     }
@@ -202,6 +193,12 @@ public class GrapplingHook : MonoBehaviour
     {
         Debug.Assert(_state == HookState.Grappled, _state);
 
+        Transform target = _grappleHit.collider.transform;
+        Vector3 targetPosition = target.TransformPoint(_grappleOffset);
+        Quaternion targetRotation = target.rotation * Quaternion.Euler(_grappleOffset);
+        transform.SetPositionAndRotation(targetPosition, targetRotation);
+
+        // Debug.DrawLine(target.position, transform.position, Color.red, 5f);
     }
 
     void UpdateRetracting()
