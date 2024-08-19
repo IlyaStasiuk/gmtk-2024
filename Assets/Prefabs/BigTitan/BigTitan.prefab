@@ -620,9 +620,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightArm
       objectReference: {fileID: 0}
+    - target: {fileID: 1475168668520297541, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245506164760852950, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2245506164760852950, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.183
+      objectReference: {fileID: 0}
     - target: {fileID: 5150540674137435421, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962698134426751207, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -1.5821998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962698134426751207, guid: ab75bfab9469e294eb5455265dcb0f1b, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.44397718
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

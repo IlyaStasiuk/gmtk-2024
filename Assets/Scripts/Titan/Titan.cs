@@ -19,6 +19,9 @@ namespace Titan
         {
             get
             {
+                if (DestroyableTitanParts == null)
+                    return 0;
+
                 var parts = DestroyableTitanParts.Where(it => it != null).ToList();
                 if (parts.Any())
                     return parts.Average(it => it.NormalizedHealth);
@@ -55,10 +58,7 @@ namespace Titan
             foreach (var col in GetComponents<Collider2D>())
                 col.enabled = isRagdoll;
 
-            Mouth.SetRagdoll(isRagdoll);
-            foreach (var hand in Hands)
-                hand.SetRagdoll(isRagdoll);
-
+            Mouth.SetDisabled(isRagdoll);
             Animator.enabled = !isRagdoll;
             AgroRange.enabled = !isRagdoll;
             enabled = !isRagdoll;

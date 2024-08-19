@@ -15,7 +15,7 @@ namespace Titan
         private float _timerLeft;
         private bool _canApplyDamage = false;
 
-        public void SetRagdoll(bool isRagdoll)
+        public void SetDisabled(bool isRagdoll)
         {
             Animator.enabled = !isRagdoll;
             enabled = !isRagdoll;
