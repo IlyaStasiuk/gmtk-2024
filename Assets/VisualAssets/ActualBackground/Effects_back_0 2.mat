@@ -73,17 +73,17 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 0.8
     - _Parallax: 0.02
-    - _Scale: -0.06
-    - _Slide: -0.2
+    - _Scale: 0.03
+    - _Slide: -0.012
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: -0.05
+    - _Speed: 0.01
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorAdd: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorMul: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorAdd: {r: 0.08627451, g: 0, b: 0, a: 0}
+    - _ColorMul: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

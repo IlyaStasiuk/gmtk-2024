@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Effects_back_0
-  m_Shader: {fileID: 4800000, guid: e245967cc1b16a74091f69073af82187, type: 3}
+  m_Name: explosionBig_3x3_AB
+  m_Shader: {fileID: 10721, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8400000, guid: 6178d071340c9df43be54a306c45dd28, type: 2}
+        m_Texture: {fileID: 2800000, guid: 0d6f3410129daf64a96bf87486b03208, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -71,19 +71,13 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: 0.6
     - _Parallax: 0.02
-    - _Scale: -0.025
-    - _Slide: -0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorAdd: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorMul: {r: 0.6698113, g: 0.28119433, b: 0.28119433, a: 0.9490196}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

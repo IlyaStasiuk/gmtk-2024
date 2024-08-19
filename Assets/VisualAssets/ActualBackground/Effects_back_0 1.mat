@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3010
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -73,17 +73,17 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 0.6
     - _Parallax: 0.02
-    - _Scale: -0.06
-    - _Slide: -0.205
+    - _Scale: 0.018
+    - _Slide: -0.03
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: -0.05
+    - _Speed: 0.01
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAdd: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorMul: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorMul: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
