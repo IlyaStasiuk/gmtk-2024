@@ -6,19 +6,20 @@ using UnityEngine.Events;
 
 public class PlayerTitanTransformation : MonoBehaviour
 {
-    [SerializeField] GameObject _humanBody;
-    [SerializeField] GameObject _titanBody;
+    [SerializeField] PlayerAnimationController _playerAnimationController;
+    // [SerializeField] GameObject _humanBody;
+    // [SerializeField] GameObject _titanBody;
 
-    [SerializeField] float _titanScale = 1f;
     [SerializeField] float _toTitanDuration = 1f;
-    [SerializeField] AnimationCurve _toTitanScaleCurve;
+    // [SerializeField] float _titanScale = 1f;
+    // [SerializeField] AnimationCurve _toTitanScaleCurve;
     [SerializeField] GameObject _toTitanEffect;
 
     [SerializeField] float _toHumanDuration = 1f;
-    [SerializeField] AnimationCurve _toHumanScaleCurve;
+    // [SerializeField] AnimationCurve _toHumanScaleCurve;
     [SerializeField] GameObject _toHumanEffect;
 
-    public bool IsTitan => _titanBody.activeSelf;
+    public bool IsTitan => _isTitan;
 
     // Usage: OnTransformedToTitan.AddListener(OnTransformedToTitan); - where OnTransformedToTitan is method like: void OnTransformedToTitan();
     // Usage: OnTransformedToTitan.RemoveListener(OnTransformedToTitan); - where OnTransformedToTitan is method like: void OnTransformedToTitan();
@@ -29,9 +30,11 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     float _transformationBeginTime;
     bool _transformInProgress;
+    bool _isTitan;
 
     public void TransformToTitan()
     {
+        _isTitan = true;
         _transformationBeginTime = Time.time;
         _transformInProgress = true;
         StartTransformToTitan();
@@ -39,6 +42,7 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     public void TransformToHuman()
     {
+        _isTitan = false;
         _transformationBeginTime = Time.time;
         _transformInProgress = true;
         StartTransformToHuman();
@@ -64,16 +68,12 @@ public class PlayerTitanTransformation : MonoBehaviour
             else
             {
                 float progress = Mathf.Clamp01(elapsedTime / _toHumanDuration);
-                if (_transformInProgress)
-                {
-                    float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
-                    _titanBody.transform.localScale = new Vector3(scale, scale, scale);
+                ProcessTransformToHuman(progress);
 
-                    if (progress >= 1f)
-                    {
-                        _transformInProgress = false;
-                        FinishTransformToHuman();
-                    }
+                if (progress >= 1f)
+                {
+                    _transformInProgress = false;
+                    FinishTransformToHuman();
                 }
             }
         }
@@ -91,8 +91,10 @@ public class PlayerTitanTransformation : MonoBehaviour
     {
         OnTransformedToTitanStarted.Invoke();
 
-        _humanBody.SetActive(false);
-        _titanBody.SetActive(true);
+        _playerAnimationController.isTitan = true;
+
+        // _humanBody.SetActive(false);
+        // _titanBody.SetActive(true);
 
         if (_toTitanEffect != null)
         {
@@ -103,8 +105,11 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void ProcessTransformToTitan(float progress)
     {
-        float scale = _toTitanScaleCurve.Evaluate(progress) * _titanScale;
-        _titanBody.transform.localScale = new Vector3(scale, scale, scale);
+        // if (_titanScale != 1f)
+        // {
+        //     float scale = _toTitanScaleCurve.Evaluate(progress) * _titanScale;
+        //     _titanBody.transform.localScale = new Vector3(scale, scale, scale);
+        // }
     }
 
     void FinishTransformToTitan()
@@ -116,6 +121,8 @@ public class PlayerTitanTransformation : MonoBehaviour
     {
         OnTransformedToHumanStarted.Invoke();
 
+        _playerAnimationController.isTitan = false;
+
         if (_toHumanEffect != null)
         {
             GameObject effect = Instantiate(_toHumanEffect, transform.position, Quaternion.identity);
@@ -125,15 +132,18 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void ProcessTransformToHuman(float progress)
     {
-        float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
-        _titanBody.transform.localScale = new Vector3(scale, scale, scale);
+        // if (_titanScale != 1f)
+        // {
+        //     float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
+        //     _titanBody.transform.localScale = new Vector3(scale, scale, scale);
+        // }
     }
 
     void FinishTransformToHuman()
     {
         OnTransformedToHumanFinished.Invoke();
 
-        _humanBody.SetActive(true);
-        _titanBody.SetActive(false);
+        // _humanBody.SetActive(true);
+        // _titanBody.SetActive(false);
     }
 }

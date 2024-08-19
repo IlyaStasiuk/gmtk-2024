@@ -35,11 +35,11 @@ public class PlayerAnimationController : MonoBehaviour
         if(isTitan != wasTitan) {
             if(isTitan)
             {
-                animator.SetTrigger("ToTitan");
+                animator.SetTrigger("toTitan");
             }
             else
             {
-                animator.SetTrigger("ToHuman");
+                animator.SetTrigger("toHuman");
             }
         }
             wasTitan = isTitan;
