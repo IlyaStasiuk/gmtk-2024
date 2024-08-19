@@ -16,6 +16,8 @@ public class GrapplingGun : MonoBehaviour
 
     KeyCode Button => _leftButton ? KeyCode.Mouse0 : KeyCode.Mouse1;
 
+    public GrapplingHook GrapplingHook => _grapplingHook;
+
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
