@@ -57,12 +57,13 @@ namespace Titan
 
         private void SetRagdoll(bool isRagdoll)
         {
-            var rb = GetComponent<Rigidbody2D>();
-            if (rb)
-                rb.simulated = isRagdoll;
 
-            foreach (var col in GetComponents<Collider2D>())
-                col.enabled = isRagdoll;
+            Rigidbody2D[] rigidbodyArray = GetComponentsInChildren<Rigidbody2D>();
+
+           
+
+            foreach (var col in rigidbodyArray)
+                col.bodyType = RigidbodyType2D.Dynamic;
 
             foreach (var hand in Hands)
                 hand.SetRagdoll(isRagdoll);
