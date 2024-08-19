@@ -23,7 +23,7 @@ public class PlayerAnimationController : MonoBehaviour
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (isTitan)
         {
-            animator.SetFloat("LeftRight", (velocity.x * 10f) * 0.1f);
+            animator.SetFloat("LeftRight", (velocity.x * 10f));
         }
         else
         {
