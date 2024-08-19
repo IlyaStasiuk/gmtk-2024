@@ -27,7 +27,6 @@ public class GrapplingRope : MonoBehaviour
     [SerializeField] AnimationCurve _curve;
     [SerializeField] float _curveWaveSize = 20;
 
-    [SerializeField] AnimationCurve _sinWaveSmoothCurve;
     [SerializeField] float _sinWaveSize = 20;
     [SerializeField] float _sinFrequency = 1;
     [SerializeField] float _sinSmoothStart = 1;
