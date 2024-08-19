@@ -6,6 +6,7 @@ namespace Titan
 {
     public class DamageEffectArea : MonoBehaviour
     {
+        [SerializeField] protected Vector3 PlayerDeathPositionShift;
         public float Damage = 10f;
 
         private PlayerTitanAttacker _player;
@@ -37,7 +38,7 @@ namespace Titan
         protected virtual void TryApplyDamage(PlayerTitanAttacker player)
         {
             // Debug.Log("Player is in damage area");
-            player.TakeDamage(Damage);
+            player.TakeDamage(Damage, transform, PlayerDeathPositionShift);
         }
     }
 }

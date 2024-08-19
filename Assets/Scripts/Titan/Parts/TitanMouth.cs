@@ -49,7 +49,7 @@ namespace Titan
             if (_canApplyDamage)
             {
                 Animator.SetTrigger("Bite");
-                player.TakeDamage(Damage);
+                player.TakeDamage(Damage, transform, PlayerDeathPositionShift);
                 _canApplyDamage = false;
                 _timerLeft = OpenEverySeconds;
             }

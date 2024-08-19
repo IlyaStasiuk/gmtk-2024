@@ -241,6 +241,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 106.941
       objectReference: {fileID: 0}
+    - target: {fileID: 7753192244711533328, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+      propertyPath: PlayerDeathPositionShift.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753192244711533328, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+      propertyPath: PlayerDeathPositionShift.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753192244711533328, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+      propertyPath: PlayerDeathPositionShift.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9080199793010095352, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_BodyType
       value: 1
