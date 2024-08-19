@@ -106,7 +106,8 @@ namespace Titan
         {
             if (Head) Head.SetActive(false);
 
-            Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
+            GameObject LooseHead = Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
+            LooseHead.transform.localScale = transform.localScale;
 
         }
         [Button]
