@@ -20,6 +20,14 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
+        if (SceneRestarter.instance.IsInDeathZone)
+        {
+            if(_grapplingHook.State == GrapplingHook.HookState.Grappled)
+                _grapplingHook.Retract();
+            
+            return;
+        }
+        
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetKeyDown(Button))

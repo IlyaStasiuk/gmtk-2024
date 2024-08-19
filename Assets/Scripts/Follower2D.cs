@@ -5,6 +5,7 @@ public class Follower2D : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private AnimationCurve SpeedCurveX;
     [SerializeField] private AnimationCurve SpeedCurveY;
+    [SerializeField] private float MinAltitude;
     [SerializeField] private GameObject backgroundHolder;
 
 
@@ -26,6 +27,9 @@ public class Follower2D : MonoBehaviour
         movementDirection.y = Mathf.Clamp(movementDirection.y, -Mathf.Abs(direction.y), Mathf.Abs(direction.y));
 
         transform.position += movementDirection;
+
+        Vector3 position =  new Vector3(transform.position.x,Mathf.Max(transform.position.y, MinAltitude), transform.position.z);
+        transform.position = position;
 
         Vector3 camPos = Vector3.zero;
         camPos.x = transform.position.x;
