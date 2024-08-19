@@ -12,6 +12,9 @@ namespace Titan
         public Animator Animator;
         public TitanAgroRange AgroRange;
         public TitanMouth Mouth;
+        public GameObject Head;
+        public GameObject SeverdHead;
+        public Transform HeadPos;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
         
@@ -69,7 +72,7 @@ namespace Titan
             AgroRange.enabled = !isRagdoll;
             enabled = !isRagdoll;
         }
-
+        
         private void OnWeakSpotDie()
         {
             // NeckSpriteRenderer.DOColor(Color.red, 0.5f)
@@ -78,9 +81,19 @@ namespace Titan
             //     .Play();
 
             if (NormalizedHealth <= 0)
+            { 
                 Kill();
+                SuperKill();
+            }
         }
 
+        public void SuperKill()
+        {
+            Head.SetActive(false);
+
+            Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
+
+        }
         [Button]
         public void Kill()
         {
