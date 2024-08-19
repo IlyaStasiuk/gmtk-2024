@@ -22,12 +22,16 @@ public class GrapplingGun : MonoBehaviour
     {
         if (SceneRestarter.instance.IsInDeathZone)
         {
-            if(_grapplingHook.State == GrapplingHook.HookState.Grappled)
-                _grapplingHook.Retract();
-            
+            if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
             return;
         }
-        
+
+        if (PlayerTitanTransformation.instance.IsTitan)
+        {
+            if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+            return;
+        }
+
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetKeyDown(Button))

@@ -55,10 +55,10 @@ namespace Titan
                 var weakSpot = other.GetComponent<TitanWeakSpot>();
                 if (weakSpot != null)
                 {
-                    OnHit.Invoke(other.gameObject);
-
                     Debug.Log($"Player hit weak spot ({weakSpot.name}) of titan {other.name}");
                     weakSpot.TakeDamage(Damage);
+
+                    OnHit.Invoke(other.gameObject);
                 }
             }
         }

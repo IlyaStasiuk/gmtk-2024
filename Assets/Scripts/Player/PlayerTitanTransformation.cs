@@ -7,20 +7,20 @@ using UnityEngine.Events;
 public class PlayerTitanTransformation : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rigidbody;
-    // [SerializeField] GameObject _humanBody;
-    // [SerializeField] GameObject _titanBody;
+    [SerializeField] List<Transform> _transformsToScale;
 
     [SerializeField] float _toTitanDuration = 1f;
-    // [SerializeField] float _titanScale = 1f;
-    // [SerializeField] AnimationCurve _toTitanScaleCurve;
+    [SerializeField] float _titanScale = 3f;
+    [SerializeField] AnimationCurve _toTitanScaleCurve;
     [SerializeField] GameObject _toTitanEffect;
 
     [SerializeField] float _toHumanDuration = 1f;
-    // [SerializeField] AnimationCurve _toHumanScaleCurve;
+    [SerializeField] AnimationCurve _toHumanScaleCurve;
     [SerializeField] GameObject _toHumanEffect;
 
     [SerializeField] float _toTitanSpeedThreshold = 50f;
     [SerializeField] float _maxTitanDuration = 5f;
+
 
     public static PlayerTitanTransformation instance;
     public bool IsTitan => _isTitan;
@@ -102,7 +102,7 @@ public class PlayerTitanTransformation : MonoBehaviour
         StartTransformToHuman();
     }
 
-    void OnTitanHit(GameObject titan)
+    public void OnTitanHit(GameObject titan)
     {
         if (IsTitan)
         {
@@ -112,9 +112,6 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void StartTransformToTitan()
     {
-        // _humanBody.SetActive(false);
-        // _titanBody.SetActive(true);
-
         if (_toTitanEffect != null)
         {
             GameObject effect = Instantiate(_toTitanEffect, transform.position, Quaternion.identity);
@@ -124,11 +121,11 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void ProcessTransformToTitan(float progress)
     {
-        // if (_titanScale != 1f)
-        // {
-        //     float scale = _toTitanScaleCurve.Evaluate(progress) * _titanScale;
-        //     _titanBody.transform.localScale = new Vector3(scale, scale, scale);
-        // }
+        if (_titanScale != 1f)
+        {
+            float scale = _toTitanScaleCurve.Evaluate(progress) * _titanScale;
+            _transformsToScale.ForEach(t => t.localScale = new Vector3(scale, scale, scale));
+        }
     }
 
     void FinishTransformToTitan()
@@ -146,16 +143,14 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void ProcessTransformToHuman(float progress)
     {
-        // if (_titanScale != 1f)
-        // {
-        //     float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
-        //     _titanBody.transform.localScale = new Vector3(scale, scale, scale);
-        // }
+        if (_titanScale != 1f)
+        {
+            float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
+            _transformsToScale.ForEach(t => t.localScale = new Vector3(scale, scale, scale));
+        }
     }
 
     void FinishTransformToHuman()
     {
-        // _humanBody.SetActive(true);
-        // _titanBody.SetActive(false);
     }
 }
