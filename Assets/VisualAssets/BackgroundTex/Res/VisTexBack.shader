@@ -5,8 +5,8 @@ Shader "Unlit/VisTexBack"
         _MainTex ("Texture", 2D) = "white" {}
         _Offset("Offset", Range(0,50)) = 0
         _Scale("X World Scale", Float) = 1.0
-        _Speed("Speed", Range(-3,3)) = 0.2
-        _Slide("Slide", Range(-3,3)) = 0.2
+        _Speed("Speed", Float) = 0.2
+        _Slide("Slide", Float) = 0.2
         _ColorMul ("Color Mul", Color) = (1,1,1,1)
         _ColorAdd ("Color Add", Color) = (0,0,0,0)
     }
@@ -17,6 +17,7 @@ Shader "Unlit/VisTexBack"
 
         Pass
         {
+            Cull Off
             Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
@@ -30,11 +31,13 @@ Shader "Unlit/VisTexBack"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
+                fixed4 vcol : COLOR0;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
+                fixed4 vcol : COLOR0;
            //     UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
@@ -51,6 +54,7 @@ Shader "Unlit/VisTexBack"
                 float wPos = (mul(UNITY_MATRIX_M, v.vertex).x + _Offset) * _Scale;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = float2(wPos + (_Time.y * _Speed) + _CamPosX * _Slide, v.uv.y);
+                o.vcol = v.vcol;
           //      UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
@@ -58,7 +62,7 @@ Shader "Unlit/VisTexBack"
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                fixed4 col = tex2D(_MainTex, float2(frac(i.uv.x ),i.uv.y)) * _ColorMul + _ColorAdd;
+                fixed4 col = tex2D(_MainTex, float2(frac(i.uv.x ),i.uv.y)) * i.vcol * _ColorMul + _ColorAdd;
                 // apply fog
             //    UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
