@@ -9,6 +9,21 @@ namespace Menu
 {
     public class MenuScreen : MonoBehaviour
     {
+        //Singleton
+        private static MenuScreen _instance;
+        public static MenuScreen Instance
+        {
+            get
+            {
+                if (!_instance)
+                {
+                    _instance = FindObjectOfType<MenuScreen>();
+                }
+
+                return _instance;
+            }
+        }
+
         [SerializeField] private CanvasGroup canvasGroup;
 
         [Header("Screens")]
@@ -33,12 +48,14 @@ namespace Menu
 
         private void Awake()
         {
+            _instance = this;
             canvasGroup.alpha = 1;
             tweenMenuStart();
         }
 
         private void Start()
         {
+            Time.timeScale = 0;
             SoundManager.Instance.playMenuMusic();
             musicVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setMusicVolume);
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
@@ -48,69 +65,71 @@ namespace Menu
         [Button]
         public void startGame()
         {
+            Time.timeScale = 1;
             SoundManager.Instance.fadeToGameMusic();
             canvasGroup.blocksRaycasts = false;
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart));
+            Sequence sequence = DOTween.Sequence().SetUpdate(true);
+            sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart).SetUpdate(true));
         }
 
         [Button]
         public void showAfterLost()
         {
+            Time.timeScale = 0;
             SoundManager.Instance.fadeToMenuMusic();
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1.0f;
             screenMenu.anchoredPosition = new Vector2(2560, screenMenu.anchoredPosition.y);
-            screenMenu.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void showCredits()
         {
-            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase);
-            screenCredits.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenCredits.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void showControls()
         {
-            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase);
-            screenControls.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenControls.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void showSettings()
         {
-            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase);
-            screenSettings.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(-2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenSettings.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void backToMenuFromCredits()
         {
-            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase);
-            screenCredits.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenCredits.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void backToMenuFromControls()
         {
-            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase);
-            screenControls.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenControls.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         [Button]
         public void backToMenuFromSettings()
         {
-            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase);
-            screenSettings.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase);
+            screenMenu.DOAnchorPosX(0.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
+            screenSettings.DOAnchorPosX(2560.0f, tweenDuration).SetEase(tweenEase).SetUpdate(true);
         }
 
         private void tweenMenuStart()
         {
             Vector2 game_name_anchored_pos = rtGameTitle.anchoredPosition;
             Vector2 buttons_anchored_pos   = rtMenuButtons.anchoredPosition;
-            Sequence sequence = DOTween.Sequence();
+            Sequence sequence = DOTween.Sequence().SetUpdate(true);
             sequence.AppendCallback(
                 () => {
                     rtGameTitle.anchoredPosition += Vector2.left * 100;
@@ -120,14 +139,15 @@ namespace Menu
                     cgMenuButtons.alpha = 0.0f;
                     //buttonsCanvasGroup.interactable = false;
                 })
-                .Append(txtGameTitle.DOFade(1.0f, 1.0f).SetEase(tweenEase))
-                .Join(rtGameTitle.DOAnchorPos(game_name_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase))
-                .Append(rtMenuButtons.DOAnchorPos(buttons_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase))
-                .Join(cgMenuButtons.DOFade(1.0f, 1.0f).SetEase(tweenEase))
+                .Append(txtGameTitle.DOFade(1.0f, 1.0f).SetEase(tweenEase).SetUpdate(true))
+                .Join(rtGameTitle.DOAnchorPos(game_name_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase).SetUpdate(true))
+                .Append(rtMenuButtons.DOAnchorPos(buttons_anchored_pos, tweenDuration/2.0f).SetEase(tweenEase).SetUpdate(true))
+                .Join(cgMenuButtons.DOFade(1.0f, 1.0f).SetEase(tweenEase).SetUpdate(true))
                 .AppendCallback(
                     () => {
                         //buttonsCanvasGroup.interactable = true;
                     })
+                .SetUpdate(true)
                 .Play();
         }
     }

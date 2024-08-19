@@ -21,10 +21,10 @@ public class LoseScreen : MonoBehaviour
         rectTransform.anchoredPosition = Vector2.zero;
         statisticsText.SetText($"... {(killed_count > 0 ? "but" : "and")} took {killed_count} monster{(killed_count > 1 ? "s" : "")} with you");
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(canvasGroup.DOFade(1.0f, 2.5f));
+        sequence.Append(canvasGroup.DOFade(1.0f, 2.5f).SetUpdate(true));
         sequence.AppendInterval(0.5f);
-        sequence.Append(statisticsText.DOFade(1.0f, 1.0f).SetEase(Ease.OutSine));
-        var button_tween = menuButtonCanvasGroup.DOFade(1.0f, 1.0f).SetEase(Ease.InQuad);
+        sequence.Append(statisticsText.DOFade(1.0f, 1.0f).SetEase(Ease.OutSine).SetUpdate(true));
+        var button_tween = menuButtonCanvasGroup.DOFade(1.0f, 1.0f).SetEase(Ease.InQuad).SetUpdate(true);
         button_tween.onComplete += () =>
         {
             menuButtonCanvasGroup.blocksRaycasts = true;
@@ -36,7 +36,7 @@ public class LoseScreen : MonoBehaviour
     public void showMenu()
     {
         SoundManager.Instance.fadeToMenuMusic();
-        rectTransform.DOAnchorPosX(-2560, 2.0f).SetEase(Ease.InOutQuad);
+        rectTransform.DOAnchorPosX(-2560, 2.0f).SetEase(Ease.InOutQuad).SetUpdate(true);
         FindObjectOfType<MenuScreen>().showAfterLost();
         menuButtonCanvasGroup.blocksRaycasts = false;
     }

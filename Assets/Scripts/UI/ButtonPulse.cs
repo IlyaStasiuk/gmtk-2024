@@ -14,6 +14,6 @@ public class ButtonPulse : MonoBehaviour
 
     public void pulse()
     {
-        transform.DOScale(1.2f, 2.0f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        transform.DOScale(1.2f, 2.0f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine).SetUpdate(true);
     }
 }

@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
     {
         if (DOTween.IsTweening(camera))
             return;
-        camera.DOShakeRotation(1.0f, new Vector3(0, 0, 1));
-        camera.DOShakePosition(1.0f, 0.2f);
+        camera.DOShakeRotation(1.0f, new Vector3(0, 0, 1)).SetUpdate(true);
+        camera.DOShakePosition(1.0f, 0.2f).SetUpdate(true);
     }
 }
