@@ -15,6 +15,11 @@ public class SceneRestarter : MonoBehaviour
 
     public bool IsInDeathZone => isInDeathZone;
     public float DurationInDeathZone => durationInDeathZone;
+
+    public void SetPlayerDied()
+    {
+        isInDeathZone = true;
+    }
     
     private void Awake()
     {
@@ -23,7 +28,7 @@ public class SceneRestarter : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (target.transform.position.y > deathAltitude)
+        if ((target.transform.position.y > deathAltitude) && !isInDeathZone)
             return;
 
         isInDeathZone = true;

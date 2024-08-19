@@ -307,6 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300d005aa5be4737bef7a5eaa7b0c603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticles: {fileID: 9102735878886471443, guid: 4d24616d7da9d5b4bb6c2065a669c8b5, type: 3}
+  PlayerRoot: {fileID: 2178180683073558550}
   Health: 100
   Damage: 10
 --- !u!58 &8752627626636219485

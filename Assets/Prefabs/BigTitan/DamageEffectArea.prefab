@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f8eb230b4345a4bbba132f55fb526c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerDeathPositionShift: {x: 0, y: -0.17, z: 4}
   Damage: 10
 --- !u!61 &4909656469349856029
 BoxCollider2D:
