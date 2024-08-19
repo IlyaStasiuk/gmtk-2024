@@ -465,7 +465,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   movementSpeed: -3
   movementDistance: 120
-  spawnAtX: 20
+  spawnAtX: 24
 --- !u!4 &507874796
 Transform:
   m_ObjectHideFlags: 0
