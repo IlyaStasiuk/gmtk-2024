@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_Simulated
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5553496576361650072, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
+      propertyPath: Hand
+      value: 
+      objectReference: {fileID: 359054035}
     - target: {fileID: 5692800435628876998, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.01715688
@@ -318,6 +322,11 @@ PrefabInstance:
 --- !u!1 &309915972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 681069557091036384, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
+  m_PrefabInstance: {fileID: 309915971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &359054035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3405538807557793399, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
   m_PrefabInstance: {fileID: 309915971}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &495619852

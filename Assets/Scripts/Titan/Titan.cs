@@ -10,6 +10,7 @@ namespace Titan
     public class Titan : MonoBehaviour
     {
         public Animator Animator;
+        public GameObject Hand;
         public TitanAgroRange AgroRange;
         public TitanMouth Mouth;
         public GameObject Head;
@@ -40,6 +41,8 @@ namespace Titan
 
         private void Awake()
         {
+            Animator.SetFloat("speed_multiplier",1/Mathf.Sqrt(transform.localScale.y-4));
+            Hand.GetComponent<Animator>().SetFloat("speed_multiplier", 1 /( Mathf.Sqrt((transform.localScale.y-4)*2)));
             AgroRange.OnAgro += OnAgro;
             
             foreach (var weakSpot in WeakSpots)

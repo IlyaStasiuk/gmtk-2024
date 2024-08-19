@@ -46,8 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 7975453665487705385}
+  Hand: {fileID: 3405538807557793399}
   AgroRange: {fileID: 2162435914935408988}
   Mouth: {fileID: 4163113705087636845}
+  Head: {fileID: 0}
+  SeverdHead: {fileID: 0}
+  HeadPos: {fileID: 0}
   WeakSpots:
   - {fileID: 2047034933542826099}
   Hands:
@@ -561,7 +565,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9108934738507162372, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
   m_PrefabInstance: {fileID: 5935329377353416317}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3405538807557793399}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a04a83a98e754742bdb6607d1f1e031, type: 3}
@@ -570,6 +574,11 @@ MonoBehaviour:
 --- !u!50 &3196956525048760965 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 9080199793010095352, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+  m_PrefabInstance: {fileID: 5935329377353416317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3405538807557793399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9015187342937102346, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
   m_PrefabInstance: {fileID: 5935329377353416317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3503101395566772995 stripped
