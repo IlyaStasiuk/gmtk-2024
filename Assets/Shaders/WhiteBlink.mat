@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WhiteBlink
-  m_Shader: {fileID: -6465566751694194690, guid: 9ade7247a6df620499d875c0050e7fae, type: 3}
+  m_Shader: {fileID: 4800000, guid: bd08d81ae6632614c8aec8cf4bf8cd74, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

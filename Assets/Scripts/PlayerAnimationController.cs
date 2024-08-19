@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private  Animator animator;
+    public bool isTitan;
     Vector2 pos;
     Camera cam;
 
     private void Start()
     {
+        isTitan = false;
         cam = Camera.main;
     }
     void FixedUpdate()
@@ -17,8 +19,16 @@ public class PlayerAnimationController : MonoBehaviour
         Vector2 velocity = new Vector2(transform.position.x, transform.position.y) - pos;
         pos = new Vector2( transform.position.x, transform.position.y);
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        animator.SetFloat("LeftRight", ( mousePos.x - transform.position.x) * 0.1f);
+        if (isTitan)
+        {
+            animator.SetFloat("LeftRight", (velocity.x * 10f) * 0.1f);
+        }
+        else
+        {
+            animator.SetFloat("LeftRight", (mousePos.x - transform.position.x) * 0.1f);
+        }
         animator.SetFloat("UpDownHead", (mousePos.y - transform.position.y) * 0.1f);
         animator.SetFloat("UpDown", velocity.y * 12f);
+        animator.SetBool("isTitan", isTitan);
     }
 }
