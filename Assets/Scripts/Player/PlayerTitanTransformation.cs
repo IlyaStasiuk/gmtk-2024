@@ -123,7 +123,7 @@ public class PlayerTitanTransformation : MonoBehaviour
     {
         if (_titanScale != 1f)
         {
-            float scale = _toTitanScaleCurve.Evaluate(progress) * _titanScale;
+            float scale = FloatUtils.MapRange(_toTitanScaleCurve.Evaluate(progress), 0f, 1f, 1f, _titanScale);
             _transformsToScale.ForEach(t => t.localScale = new Vector3(scale, scale, scale));
         }
     }
@@ -145,7 +145,7 @@ public class PlayerTitanTransformation : MonoBehaviour
     {
         if (_titanScale != 1f)
         {
-            float scale = _toHumanScaleCurve.Evaluate(1f - progress) * _titanScale;
+            float scale = FloatUtils.MapRange(_toHumanScaleCurve.Evaluate(1f - progress), 0f, 1f, 1f, _titanScale);
             _transformsToScale.ForEach(t => t.localScale = new Vector3(scale, scale, scale));
         }
     }
