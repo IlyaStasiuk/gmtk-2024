@@ -275,60 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6432328a8d2f2f24faa5984e44c554ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _humanBody: {fileID: 0}
-  _titanBody: {fileID: 0}
-  _titanScale: 3
+  _playerAnimationController: {fileID: 596717277531347995}
   _toTitanDuration: 1
-  _toTitanScaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _toTitanEffect: {fileID: 0}
   _toHumanDuration: 1
-  _toHumanScaleCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _toHumanEffect: {fileID: 0}
   OnTransformedToTitanStarted:
     m_PersistentCalls:
@@ -606,6 +556,17 @@ PrefabInstance:
       addedObject: {fileID: 3593791145219022810}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
+--- !u!114 &596717277531347995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7099248559749021439, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
+  m_PrefabInstance: {fileID: 7692833985781768932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6c73e7b7168214f972081cd1a357d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2451751426595808793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5243369943384179965, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}

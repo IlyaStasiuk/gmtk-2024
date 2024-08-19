@@ -48,26 +48,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClipsWithTypes:
-  - soundType: 2
-    audioClip: {fileID: 8300000, guid: bd8a8c084e992524ea05b1191decdcf0, type: 3}
-  - soundType: 3
-    audioClip: {fileID: 8300000, guid: 6786107b1e0adbe4193a90a428a97c28, type: 3}
-  - soundType: 4
-    audioClip: {fileID: 8300000, guid: f552102e030a43c4eba1e785e5e3627f, type: 3}
-  - soundType: 5
-    audioClip: {fileID: 8300000, guid: b00ca8444430181458d19a546b26d854, type: 3}
-  - soundType: 12
+  - soundType: 101
     audioClip: {fileID: 8300000, guid: 580ef1f660ca24542b11847d33236f21, type: 3}
-  - soundType: 10
-    audioClip: {fileID: 8300000, guid: 9cfd8d6c2dc41454b9d5096f5039d89f, type: 3}
-  - soundType: 6
-    audioClip: {fileID: 8300000, guid: 4a97fe57258d6264f864651c8def241f, type: 3}
-  - soundType: 11
+  - soundType: 100
     audioClip: {fileID: 8300000, guid: aa82c9253b3557d40bb9154e762ae6e1, type: 3}
+  - soundType: 2
+    audioClip: {fileID: 8300000, guid: 382526a9038ff864bb7f8d0fa1b49330, type: 3}
+  - soundType: 3
+    audioClip: {fileID: 8300000, guid: 55ae0964cdd25394eb28b2fad1e4b865, type: 3}
+  - soundType: 4
+    audioClip: {fileID: 8300000, guid: 6a5a6f7cec41a044791e118ef50e442d, type: 3}
+  - soundType: 5
+    audioClip: {fileID: 8300000, guid: 1e92195a1345cf445b39438cc4b5086e, type: 3}
+  - soundType: 6
+    audioClip: {fileID: 8300000, guid: db7d81ef2c0fdce4f8bcb49a4fc5c549, type: 3}
   - soundType: 7
-    audioClip: {fileID: 8300000, guid: 166ea0e5386442c4399dcdf3eb1748a5, type: 3}
-  - soundType: 8
-    audioClip: {fileID: 8300000, guid: c46afc86ab82ed640b61dead9c53082d, type: 3}
+    audioClip: {fileID: 8300000, guid: 2606cd4c6fdf9524da65ad01205e7133, type: 3}
+  - soundType: 7
+    audioClip: {fileID: 8300000, guid: 4ec4db545c483a648bb1e4a96a4077db, type: 3}
+  - soundType: 9
+    audioClip: {fileID: 8300000, guid: 5b1ef61eeb38c5b428b52a0a57770323, type: 3}
+  - soundType: 10
+    audioClip: {fileID: 8300000, guid: 595fe92108333054a8533f5e44ea89f5, type: 3}
   skillsAudioSource: {fileID: 3421216011511303401}
   menuAudioSource: {fileID: 3421216011511303402}
   musicAudioSource: {fileID: 3421216011511303403}

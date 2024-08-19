@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
             _audio_clips[sound_type] = clip;
         }
 
-        if (sound_type is > SoundType.SKILL_BEFORE_FIRST and < SoundType.SKILL_AFTER_LAST)
+        if (sound_type is > SoundType.GAME_SFX and < SoundType.GAME_SFX_AFTER_LAST)
             skillsAudioSource.PlayOneShot(clip);
         else if (sound_type >= SoundType.GAME_MUSIC && sound_type <= SoundType.MENU_MUSIC)
         {
@@ -45,6 +45,11 @@ public class SoundManager : MonoBehaviour
         {
             menuAudioSource.PlayOneShot(clip);
         }
+    }
+
+    public void playSoundRandom(params SoundType[] sound_types)
+    {
+        playSound(sound_types[UnityEngine.Random.Range(0, sound_types.Length)]);
     }
 
     public void playSoundTest(string name) => playSound(Enum.Parse<SoundType>(name));
@@ -107,21 +112,26 @@ public enum SoundType
 {
     NONE,
 
-    SKILL_BEFORE_FIRST,
-    BASIC_ATTACK,
-    STRONG_ATTACK,
-    EVASION,
-    BLOCK,
-    FIREBALL,
-    HEAL,
-    POISON,
+    GAME_SFX,
+    GRAPLING_SHOT_1,
+    GRAPLING_SHOT_2,
 
+    GRAPLING_HIT_1,
+    GRAPLING_HIT_2,
 
-    SKILL_AFTER_LAST,
+    TITAN_SCREAM_1,
+    TITAN_SCREAM_2,
+    TITAN_SCREAM_3,
+
+    PLAYER_DEATH_SMASHED,
+    PLAYER_DEATH_EATEN,
+    
+
+    GAME_SFX_AFTER_LAST,
 
     CLICK,
 
-    GAME_MUSIC,
+    GAME_MUSIC = 100,
     //place for more music
     MENU_MUSIC
 }

@@ -1,4 +1,4 @@
-Shader "Unlit/VisTexBack"
+Shader "Unlit/VisTexBackOpaque"
 {
     Properties
     {
@@ -12,14 +12,14 @@ Shader "Unlit/VisTexBack"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" "Queue"="Transparent"}
+        Tags { "RenderType"="Opaque" "Queue"="Geometry"}
         LOD 100
 
         Pass
         {
-            ZWrite Off
+        //    ZWrite Off
             Cull Off
-            Blend SrcAlpha OneMinusSrcAlpha
+      //      Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -64,7 +64,7 @@ Shader "Unlit/VisTexBack"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, float2(frac(i.uv.x ),i.uv.y)) * i.vcol * _ColorMul + _ColorAdd;
-             //   clip(col.a < 0.11);
+                clip(col.a - 0.1);
                 // apply fog
             //    UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
