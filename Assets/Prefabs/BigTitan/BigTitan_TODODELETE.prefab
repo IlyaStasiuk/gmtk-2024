@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 34168556878685608}
   - component: {fileID: 5883620100781848144}
   m_Layer: 0
-  m_Name: BigTitan
+  m_Name: BigTitan_TODODELETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
