@@ -44,9 +44,9 @@ Material:
     - _EnableExternalAlpha: 0
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Shadow: 0.961
-    - _ShadowOffset: -0.18
-    - _ShadowWidth: 0.018
+    - _Shadow: 0.84
+    - _ShadowOffset: -0.125
+    - _ShadowWidth: 0.002
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 0.3019608}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

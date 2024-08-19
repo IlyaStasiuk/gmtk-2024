@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0.7607843}
+  m_Color: {r: 0.16887681, g: 0.19119155, b: 0.21698111, a: 0.7607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -241,7 +241,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Color: {r: 0.10675472, g: 0.13155201, b: 0.184, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423265156402984128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3390a26b097f74a8e09b3fad905fb7, type: 3}
   m_Name: 
@@ -376,13 +376,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498051778159828724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3390a26b097f74a8e09b3fad905fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.25
+  parallaxSpeed: 0.45
   movementSpeed: 0.15
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1654633972848580141
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.2
+  parallaxSpeed: 0.4
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1815195523260653200
@@ -510,7 +510,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0.70980394}
+  m_Color: {r: 0.11934852, g: 0.13696963, b: 0.16981131, a: 0.70980394}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -679,7 +679,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1649449558, guid: 2b5d8c3a2572e1948be0be011d5bda82, type: 3}
-  m_Color: {r: 0.05, g: 0.05, b: 0.05, a: 0.5686275}
+  m_Color: {r: 0.0068084756, g: 0.056837022, b: 0.084905684, a: 0.5686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -705,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2505798122117120166
 Transform:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1649449558, guid: 2b5d8c3a2572e1948be0be011d5bda82, type: 3}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0.7607843}
+  m_Color: {r: 0.16887681, g: 0.19119155, b: 0.21698111, a: 0.7607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -1102,8 +1102,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9962538, b: 0.7783019, a: 1}
-  m_Intensity: 0.6
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.1
+  parallaxSpeed: 0.3
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3181506259882243627
@@ -1320,7 +1320,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -106345095, guid: 2b5d8c3a2572e1948be0be011d5bda82, type: 3}
-  m_Color: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0.70980394}
+  m_Color: {r: 0.11934852, g: 0.13696963, b: 0.16981131, a: 0.70980394}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.25
+  parallaxSpeed: 0.55
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4022947971184543153
@@ -1788,13 +1788,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5246865733060809532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3390a26b097f74a8e09b3fad905fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.3
+  parallaxSpeed: 0.5
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5578724927470170152
@@ -2193,7 +2193,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -106345095, guid: 2b5d8c3a2572e1948be0be011d5bda82, type: 3}
-  m_Color: {r: 0.08, g: 0.08, b: 0.08, a: 0.77254903}
+  m_Color: {r: 0.035377353, g: 0.07595211, b: 0.14150941, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -2277,7 +2277,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.08, g: 0.08, b: 0.08, a: 0.77254903}
+  m_Color: {r: 0.035377353, g: 0.07595211, b: 0.14150941, a: 0.77254903}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.25
+  parallaxSpeed: 0.45
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8136062803730977397
@@ -2579,7 +2579,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.05, g: 0.05, b: 0.05, a: 0.5686275}
+  m_Color: {r: 0.0068084756, g: 0.056837022, b: 0.084905684, a: 0.5686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -2749,7 +2749,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1649449558, guid: 2b5d8c3a2572e1948be0be011d5bda82, type: 3}
-  m_Color: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Color: {r: 0.10675472, g: 0.13155201, b: 0.184, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -3061,7 +3061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rends: []
-  parallaxSpeed: 0.05
+  parallaxSpeed: 0.25
   movementSpeed: 0
   tintColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8981100226722467529
@@ -3481,9 +3481,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2615389614106645304, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0113608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615389614106645304, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000029749478
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115136769843536909, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115136769843536909, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416685300417573436, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3634224
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416685300417573436, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000004010548
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734157890771674088, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.09092
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734157890771674088, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000061505034
+      objectReference: {fileID: 0}
     - target: {fileID: 8360868543723773550, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
       propertyPath: m_Name
       value: BackgroundCamEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622479729707075298, guid: 448dbbfa8633d534b9920ca5c7e15edc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

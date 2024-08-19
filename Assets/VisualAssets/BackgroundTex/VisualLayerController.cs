@@ -14,7 +14,7 @@ public class VisualLayerController : MonoBehaviour
         foreach (Renderer r in rends) {
 
 //            r.material.SetFloat("_Scale", -0.03f);
-            r.material.SetFloat("_Slide", -parallaxSpeed * 0.1f);
+            r.material.SetFloat("_Slide", parallaxSpeed * 0.1f);
             r.material.SetFloat("_Speed", -movementSpeed * 0.1f);
             r.material.SetFloat("_Offset", Random.Range(0f,33f));
             if(r is SpriteRenderer)
