@@ -33,6 +33,7 @@ namespace Titan
 
         public void SetRagdoll(bool isRagdoll)
         {
+            return;
             Animator.enabled = !isRagdoll;
             IKManager.enabled = !isRagdoll;
             enabled = !isRagdoll;
