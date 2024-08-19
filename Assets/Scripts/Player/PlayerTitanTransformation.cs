@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PlayerTitanTransformation : MonoBehaviour
 {
-    [SerializeField] PlayerAnimationController _playerAnimationController;
+    [SerializeField] Rigidbody2D _rigidbody;
     // [SerializeField] GameObject _humanBody;
     // [SerializeField] GameObject _titanBody;
 
@@ -19,33 +19,19 @@ public class PlayerTitanTransformation : MonoBehaviour
     // [SerializeField] AnimationCurve _toHumanScaleCurve;
     [SerializeField] GameObject _toHumanEffect;
 
-    public bool IsTitan => _isTitan;
+    [SerializeField] float _toTitanSpeedThreshold = 50f;
+    [SerializeField] float _maxTitanDuration = 5f;
 
-    // Usage: OnTransformedToTitan.AddListener(OnTransformedToTitan); - where OnTransformedToTitan is method like: void OnTransformedToTitan();
-    // Usage: OnTransformedToTitan.RemoveListener(OnTransformedToTitan); - where OnTransformedToTitan is method like: void OnTransformedToTitan();
-    public UnityEvent OnTransformedToTitanStarted;
-    public UnityEvent OnTransformedToTitanFinished;
-    public UnityEvent OnTransformedToHumanStarted;
-    public UnityEvent OnTransformedToHumanFinished;
+    public static PlayerTitanTransformation instance;
+    public bool IsTitan => _isTitan;
 
     float _transformationBeginTime;
     bool _transformInProgress;
     bool _isTitan;
 
-    public void TransformToTitan()
+    void Awake()
     {
-        _isTitan = true;
-        _transformationBeginTime = Time.time;
-        _transformInProgress = true;
-        StartTransformToTitan();
-    }
-
-    public void TransformToHuman()
-    {
-        _isTitan = false;
-        _transformationBeginTime = Time.time;
-        _transformInProgress = true;
-        StartTransformToHuman();
+        instance = this;
     }
 
     void Update()
@@ -79,20 +65,53 @@ public class PlayerTitanTransformation : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (IsTitan)
             {
-                if (IsTitan) TransformToHuman();
-                else TransformToTitan();
+                if (elapsedTime > _maxTitanDuration)
+                {
+                    TransformToHuman();
+                }
             }
+            else
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    // Debug.Log("Speed: " + _rigidbody.velocity.magnitude);
+                    if (_rigidbody.velocity.magnitude > _toTitanSpeedThreshold)
+                    {
+                        TransformToTitan();
+                    }
+                }
+            }
+        }
+    }
+
+    public void TransformToTitan()
+    {
+        _isTitan = true;
+        _transformationBeginTime = Time.time;
+        _transformInProgress = true;
+        StartTransformToTitan();
+    }
+
+    public void TransformToHuman()
+    {
+        _isTitan = false;
+        _transformationBeginTime = Time.time;
+        _transformInProgress = true;
+        StartTransformToHuman();
+    }
+
+    void OnTitanHit(GameObject titan)
+    {
+        if (IsTitan)
+        {
+            TransformToHuman();
         }
     }
 
     void StartTransformToTitan()
     {
-        OnTransformedToTitanStarted.Invoke();
-
-        _playerAnimationController.isTitan = true;
-
         // _humanBody.SetActive(false);
         // _titanBody.SetActive(true);
 
@@ -114,15 +133,10 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToTitan()
     {
-        OnTransformedToTitanFinished.Invoke();
     }
 
     void StartTransformToHuman()
     {
-        OnTransformedToHumanStarted.Invoke();
-
-        _playerAnimationController.isTitan = false;
-
         if (_toHumanEffect != null)
         {
             GameObject effect = Instantiate(_toHumanEffect, transform.position, Quaternion.identity);
@@ -141,8 +155,6 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToHuman()
     {
-        OnTransformedToHumanFinished.Invoke();
-
         // _humanBody.SetActive(true);
         // _titanBody.SetActive(false);
     }

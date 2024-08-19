@@ -162,8 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grapplingRope: {fileID: 2534004592692894756}
-  _rigidbody: {fileID: 0}
-  _joint: {fileID: 0}
   _origin: {fileID: 7506896364247244710}
   _ignoredObjects:
   - {fileID: 0}
@@ -218,7 +216,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _retractSpeedMultiplier: 100
+  _retractSpeedMultiplier: 150
   _grappableLayers:
     serializedVersion: 2
     m_Bits: 8

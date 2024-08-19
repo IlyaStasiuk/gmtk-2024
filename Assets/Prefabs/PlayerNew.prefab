@@ -275,23 +275,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6432328a8d2f2f24faa5984e44c554ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimationController: {fileID: 596717277531347995}
+  _rigidbody: {fileID: 2178180683073558550}
   _toTitanDuration: 1
   _toTitanEffect: {fileID: 0}
   _toHumanDuration: 1
   _toHumanEffect: {fileID: 0}
-  OnTransformedToTitanStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToTitanFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToHumanStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToHumanFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  _toTitanSpeedThreshold: 40
+  _maxTitanDuration: 1
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +331,9 @@ MonoBehaviour:
   PlayerRoot: {fileID: 2178180683073558550}
   Health: 100
   Damage: 10
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &8752627626636219485
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -560,17 +553,6 @@ PrefabInstance:
       addedObject: {fileID: 3593791145219022810}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
---- !u!114 &596717277531347995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7099248559749021439, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
-  m_PrefabInstance: {fileID: 7692833985781768932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6c73e7b7168214f972081cd1a357d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2451751426595808793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5243369943384179965, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}

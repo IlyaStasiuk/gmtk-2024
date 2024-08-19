@@ -82,8 +82,8 @@ namespace Titan
 
             if (NormalizedHealth <= 0)
             { 
-                Kill();
-                SuperKill();
+                if (PlayerTitanTransformation.instance.IsTitan) SuperKill();
+                else Kill();
             }
         }
 
