@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 6771852688091460222}
   - component: {fileID: 5984815222229211973}
   - component: {fileID: 3904582556628491397}
+  - component: {fileID: 992298825107188912}
   m_Layer: 6
   m_Name: PlayerNew
   m_TagString: Player
@@ -262,6 +263,85 @@ MonoBehaviour:
   _maxAngleToDash: 10
   _dashForce: 2
   _velocityChangeSpeed: 1
+--- !u!114 &992298825107188912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386308992846204692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6432328a8d2f2f24faa5984e44c554ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _humanBody: {fileID: 0}
+  _titanBody: {fileID: 0}
+  _titanScale: 3
+  _toTitanDuration: 1
+  _toTitanScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _toTitanEffect: {fileID: 0}
+  _toHumanDuration: 1
+  _toHumanScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _toHumanEffect: {fileID: 0}
+  OnTransformedToTitanStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransformedToTitanFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransformedToHumanStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransformedToHumanFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0
