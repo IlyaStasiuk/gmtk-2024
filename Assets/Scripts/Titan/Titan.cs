@@ -84,10 +84,21 @@ namespace Titan
             //     .Play();
 
             if (NormalizedHealth <= 0)
-            { 
+            {
+                SoundManager.Instance.playSound(GetDeathSoundByScale());
                 Kill();
                 SuperKill();
             }
+        }
+
+        private SoundType GetDeathSoundByScale()
+        {
+            return transform.localScale.y switch
+            {
+                <= 10 => SoundType.TITAN_DEATH_SMALL,
+                <= 15 => SoundType.TITAN_DEATH_MEDIUM,
+                _ => SoundType.TITAN_DEATH_BIG
+            };
         }
 
         public void SuperKill()

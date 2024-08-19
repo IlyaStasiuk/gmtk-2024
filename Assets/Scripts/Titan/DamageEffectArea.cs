@@ -50,6 +50,7 @@ namespace Titan
 
         protected virtual void TryApplyDamage(PlayerTitanAttacker player)
         {
+            SoundManager.Instance.playSoundRandom(SoundType.PLAYER_DEATH_SMASHED);
             // Debug.Log("Player is in damage area");
             player.TakeDamage(Damage, transform, PlayerDeathPositionShift);
         }
