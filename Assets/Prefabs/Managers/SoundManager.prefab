@@ -70,6 +70,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 5b1ef61eeb38c5b428b52a0a57770323, type: 3}
   - soundType: 10
     audioClip: {fileID: 8300000, guid: 595fe92108333054a8533f5e44ea89f5, type: 3}
+  - soundType: 11
+    audioClip: {fileID: 8300000, guid: 142e8ac295126874f9d3559b82fb44ed, type: 3}
+  - soundType: 12
+    audioClip: {fileID: 8300000, guid: 1fdc43c1ff8dcbf4fbebdf260b27d02f, type: 3}
+  - soundType: 13
+    audioClip: {fileID: 8300000, guid: bb9bc1d087e532443befd7a3c3579c42, type: 3}
   skillsAudioSource: {fileID: 3421216011511303401}
   menuAudioSource: {fileID: 3421216011511303402}
   musicAudioSource: {fileID: 3421216011511303403}

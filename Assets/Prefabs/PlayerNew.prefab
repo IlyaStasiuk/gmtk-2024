@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 9102735878886471443, guid: 4d24616d7da9d5b4bb6c2065a669c8b5, type: 3}
   PlayerRoot: {fileID: 2178180683073558550}
-  Health: 100
+  Health: 1
   Damage: 10
   OnHit:
     m_PersistentCalls:

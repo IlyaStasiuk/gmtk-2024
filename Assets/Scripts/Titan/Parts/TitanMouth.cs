@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 
@@ -14,6 +15,11 @@ namespace Titan
 
         private float _timerLeft;
         private bool _canApplyDamage = false;
+
+        private void Awake()
+        {
+            _timerLeft = OpenEverySeconds;
+        }
 
         public void SetDisabled(bool isRagdoll)
         {
@@ -49,6 +55,7 @@ namespace Titan
             if (_canApplyDamage)
             {
                 Animator.SetTrigger("Bite");
+                SoundManager.Instance.playSoundRandom(SoundType.PLAYER_DEATH_EATEN);
                 player.TakeDamage(Damage, transform, PlayerDeathPositionShift);
                 _canApplyDamage = false;
                 _timerLeft = OpenEverySeconds;
@@ -57,6 +64,10 @@ namespace Titan
         
         private void OpenMouth()
         {
+            //play sound with 20% chance
+            if (UnityEngine.Random.Range(0, 5) == 0)
+                SoundManager.Instance.playSoundRandom(SoundType.TITAN_SCREAM_1, SoundType.TITAN_SCREAM_2, SoundType.TITAN_SCREAM_3);
+
             _canApplyDamage = true;
             Animator.SetTrigger("Open");
         }
