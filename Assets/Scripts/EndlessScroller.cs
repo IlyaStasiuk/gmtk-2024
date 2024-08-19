@@ -24,6 +24,7 @@ public class EndlessScroller : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float movementDistance;
     [SerializeField] private float spawnAtX;
+    [SerializeField] private float altitude;
 
 
     private List<ScrollerInstance> instances = new List<ScrollerInstance>();
@@ -33,7 +34,9 @@ public class EndlessScroller : MonoBehaviour
     private void SpawnInstance()
     {
         GameObject instance = Instantiate(prefab);
-        instance.transform.position = transform.position;
+        Vector3 position = transform.position;
+        position.y = altitude;
+        instance.transform.position = position;
         Vector3 delta = new Vector3(spawnAtX, 0, 0);
         instance.transform.position += delta;
 
