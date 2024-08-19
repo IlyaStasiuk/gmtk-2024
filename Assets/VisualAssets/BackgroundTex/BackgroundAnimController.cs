@@ -9,10 +9,13 @@ public class BackgroundAnimController : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < animator.Length; i++)
+        if(animator.Length > 0)
         {
-            AnimatorClipInfo state = animator[i].GetCurrentAnimatorClipInfo(0)[0];
-            animator[i].Play("idle", 0, 1f /( i+1)); ;
+            for (int i = 0; i < animator.Length; i++)
+            {
+                AnimatorClipInfo state = animator[i].GetCurrentAnimatorClipInfo(0)[0];
+                animator[i].Play("idle", 0, 1f /( i+1)); ;
+            }
         }
         cam = Camera.main;
     }

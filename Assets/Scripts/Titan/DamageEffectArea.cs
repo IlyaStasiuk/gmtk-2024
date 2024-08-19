@@ -19,7 +19,7 @@ namespace Titan
 
         protected virtual void TryApplyDamage(PlayerTitanAttacker player)
         {
-            Debug.Log("Player is in damage area");
+            // Debug.Log("Player is in damage area");
             player.TakeDamage(Damage);
         }
     }

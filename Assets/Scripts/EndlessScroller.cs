@@ -6,7 +6,15 @@ using Random = UnityEngine.Random;
 struct ScrollerInstance
 {
     public GameObject instance;
+    public Rigidbody2D rigidbody;
     public float movementLeft;
+
+    public ScrollerInstance(GameObject instance, float movementLeft)
+    {
+        this.instance = instance;
+        this.rigidbody = instance.GetComponent<Rigidbody2D>();
+        this.movementLeft = movementLeft;
+    }
 }
 
 public class EndlessScroller : MonoBehaviour
@@ -29,7 +37,7 @@ public class EndlessScroller : MonoBehaviour
         Vector3 delta = new Vector3(spawnAtX, 0, 0);
         instance.transform.position += delta;
 
-        instances.Add(new ScrollerInstance { instance = instance, movementLeft = movementDistance });
+        instances.Add(new ScrollerInstance(instance, movementDistance));
 
         float randomValue = Random.Range(0.0f, 1.0f);
         distanceLeftToSpawnNextInstance = spawnChance.Evaluate(randomValue);
@@ -49,11 +57,13 @@ public class EndlessScroller : MonoBehaviour
             ScrollerInstance scrollerInstance = instances[i];
             Vector3 delta = new Vector3(deltaMovementSpeed, 0, 0);
 
-            scrollerInstance.instance.transform.position += delta;
+            if (scrollerInstance.rigidbody) scrollerInstance.rigidbody.MovePosition(scrollerInstance.rigidbody.position + (Vector2)delta);
+            else scrollerInstance.instance.transform.position += delta;
+
             scrollerInstance.movementLeft -= (Mathf.Abs(deltaMovementSpeed) + (-positionDelta.x));
 
             instances[i] = scrollerInstance;
-            
+
             if (scrollerInstance.movementLeft <= 0.0f)
             {
                 Destroy(scrollerInstance.instance);
