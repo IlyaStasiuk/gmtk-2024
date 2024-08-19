@@ -6,12 +6,14 @@ public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private  Animator animator;
     public bool isTitan;
+    bool wasTitan;
     Vector2 pos;
     Camera cam;
 
     private void Start()
     {
         isTitan = false;
+        wasTitan = isTitan;
         cam = Camera.main;
     }
     void FixedUpdate()
@@ -29,6 +31,17 @@ public class PlayerAnimationController : MonoBehaviour
         }
         animator.SetFloat("UpDownHead", (mousePos.y - transform.position.y) * 0.1f);
         animator.SetFloat("UpDown", velocity.y * 12f);
-        animator.SetBool("isTitan", isTitan);
+        
+        if(isTitan != wasTitan) {
+            if(isTitan)
+            {
+                animator.SetTrigger("ToTitan");
+            }
+            else
+            {
+                animator.SetTrigger("ToHuman");
+            }
+        }
+            wasTitan = isTitan;
     }
 }
