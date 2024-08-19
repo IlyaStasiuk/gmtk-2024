@@ -356,9 +356,10 @@ MonoBehaviour:
   _lineRenderer: {fileID: 6148848368427353404}
   _start: {fileID: 7506896364247244710}
   _end: {fileID: 8411978611406082220}
-  _pointCount: 120
+  _pointCount: 100
+  _maxLength: 50
   _ropeDrag: 0.6
-  _ropeOffsetDrag: 1
+  _ropeOffsetDrag: 5
   _straighteningSpeed: 3
   _curve:
     serializedVersion: 2
@@ -475,7 +476,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _curveWaveSize: 2
-  _curveWaveLenght: 30
   _sinWaveSmoothCurve:
     serializedVersion: 2
     m_Curve:
@@ -676,7 +676,6 @@ MonoBehaviour:
   _gunPivot: {fileID: 129756188581117507}
   _grapplingHook: {fileID: 7968901558273334819}
   _grapplingSping: {fileID: 9186609098684317386}
-  _launchDistance: 50
   _leftButton: 1
   rotateOverTime: 0
   rotationSpeed: 12.9
@@ -696,4 +695,3 @@ MonoBehaviour:
   _targetRigidbody: {fileID: 0}
   _grapplePoint: {fileID: 8411978611406082220}
   _launchSpeed: 0.4
-  _disableSpringDistance: 1

@@ -46,7 +46,7 @@ public class GrapplingHook : MonoBehaviour
         _grapplingRope.Clear();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         switch (_state)
         {
@@ -148,7 +148,7 @@ public class GrapplingHook : MonoBehaviour
             // Debug.Log("UpdateFlying transform");
 
             transform.position += (Vector3)raycastVector;
-            if (CurrentDistance >= _flyingDirection.magnitude) Retract();
+            if (CurrentDistance >= _grapplingRope.MaxLength) Retract();
         }
     }
 

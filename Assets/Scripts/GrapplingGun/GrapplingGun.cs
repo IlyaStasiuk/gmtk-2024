@@ -8,10 +8,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] Transform _gunPivot;
     [SerializeField] GrapplingHook _grapplingHook;
     [SerializeField] GrapplingSpring _grapplingSping;
-
-    [SerializeField] private float _launchDistance = 30;
     [SerializeField] private bool _leftButton = true;
-
     [SerializeField] private bool rotateOverTime = true;
     [Range(0, 80)][SerializeField] private float rotationSpeed = 4;
 
@@ -34,7 +31,7 @@ public class GrapplingGun : MonoBehaviour
         if (_target.HasValue && _grapplingHook.State == GrapplingHook.HookState.Idle)
         {
             Vector2 launchVector = _target.Value - (Vector2)_gunPivot.transform.position;
-            _grapplingHook.Launch(launchVector.normalized * _launchDistance);
+            _grapplingHook.Launch(launchVector.normalized);
             _target = null;
         }
 

@@ -15,7 +15,7 @@ public class GrapplingSpring : MonoBehaviour
     public Transform _grapplePoint;
 
     [SerializeField][Range(0, 5)] float _launchSpeed = 5;
-    [SerializeField] float _disableSpringDistance = 1f;
+    // [SerializeField] float _disableSpringDistance = 1f;
 
     // [Header("Launching")]
     // [SerializeField] private bool launchToPoint = true;
@@ -31,18 +31,18 @@ public class GrapplingSpring : MonoBehaviour
     void Start()
     {
         _springJoint.enabled = false;
-        _targetRigidbody.gravityScale = 1;
+        // _targetRigidbody.gravityScale = 1;
     }
 
     void FixedUpdate()
     {
         if (Grappled)
         {
-            float distance = Vector2.Distance(_springJoint.connectedAnchor, _targetRigidbody.position);
-            float springPercent = FloatUtils.MapRange01(distance, 0, _disableSpringDistance);
-            _springJoint.frequency = _launchSpeed * springPercent;
+            // float distance = Vector2.Distance(_springJoint.connectedAnchor, _targetRigidbody.position);
+            // float springPercent = FloatUtils.MapRange01(distance, 0, _disableSpringDistance);
+            // _springJoint.frequency = _launchSpeed * springPercent;
 
-            _springJoint.connectedAnchor = _grapplePoint.position;
+            if (_springJoint.connectedAnchor != (Vector2)_grapplePoint.position) _springJoint.connectedAnchor = _grapplePoint.position;
         }
 
         // if (launchToPoint && grapplingRope.isGrappling)

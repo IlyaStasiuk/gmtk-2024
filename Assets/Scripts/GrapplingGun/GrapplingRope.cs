@@ -18,13 +18,14 @@ public class GrapplingRope : MonoBehaviour
 
     [Header("General parameters")]
     [SerializeField] int _pointCount = 20;
+    [SerializeField] private float _maxLength = 50;
+
     [SerializeField][Range(0f, 0.9f)] float _ropeDrag = 0f;
     [SerializeField] float _ropeOffsetDrag = 1;
     [SerializeField] float _straighteningSpeed = 4;
 
     [SerializeField] AnimationCurve _curve;
     [SerializeField] float _curveWaveSize = 20;
-    [SerializeField] float _curveWaveLenght = 20;
 
     [SerializeField] AnimationCurve _sinWaveSmoothCurve;
     [SerializeField] float _sinWaveSize = 20;
@@ -41,6 +42,8 @@ public class GrapplingRope : MonoBehaviour
     float[] _targetOffsets;
 
     float _toStraightStartTime = float.NaN;
+
+    public float MaxLength => _maxLength;
 
     public void SetSinWave() => SetRopeType(Type.SinWave);
     public void SetCurve() => SetRopeType(Type.Curve);
@@ -151,8 +154,8 @@ public class GrapplingRope : MonoBehaviour
 
         bool sizeIncreases = Vector2.Dot(endMovement, vector) > 0;
 
-        bool disableRopeDrag = Straightening || endMovement.magnitude > 0.1f;
-        bool disableRopeOffsetDrag = sizeIncreases;
+        bool disableRopeDrag = false;//Straightening || endMovement.magnitude > 0.1f;
+        bool disableRopeOffsetDrag = sizeIncreases && (vector.magnitude / MaxLength) < 0.75f; //||sizeIncreases || Straightening;
 
         // Debug.DrawRay(_start.position, _end.position - _start.position, disableRopeOffsetDrag ? Color.green : Color.red, 1f);
 
@@ -220,14 +223,13 @@ public class GrapplingRope : MonoBehaviour
             waveSize *= 1f - StraightenProgress;
         }
 
-        float waveLenght = Mathf.Max(_curveWaveLenght, distance);
-        float waveOffset = waveLenght - distance;
+        float waveOffset = MaxLength - distance;
 
         for (int i = 0; i < _pointCount; i++)
         {
             float drawingProgress = (float)i / ((float)_pointCount - 1f);
             float currentWaveDistance = waveOffset + drawingProgress * distance;
-            float waveProgress = currentWaveDistance / waveLenght;
+            float waveProgress = currentWaveDistance / MaxLength;
 
             float offset = _curve.Evaluate(waveProgress) * waveSize;
             float smothing = SmoothStep(drawingProgress);
