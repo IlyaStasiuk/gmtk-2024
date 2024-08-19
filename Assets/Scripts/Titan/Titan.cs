@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace Titan
         public TitanMouth Mouth;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
+        
+        public SpriteRenderer NeckSpriteRenderer;
 
         [ShowNativeProperty]
         public float NormalizedHealth
@@ -54,9 +57,15 @@ namespace Titan
 
         private void SetRagdoll(bool isRagdoll)
         {
-            GetComponent<Rigidbody2D>().simulated = isRagdoll;
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb)
+                rb.simulated = isRagdoll;
+
             foreach (var col in GetComponents<Collider2D>())
                 col.enabled = isRagdoll;
+
+            foreach (var hand in Hands)
+                hand.SetRagdoll(isRagdoll);
 
             Mouth.SetDisabled(isRagdoll);
             Animator.enabled = !isRagdoll;
@@ -66,6 +75,11 @@ namespace Titan
 
         private void OnWeakSpotDie()
         {
+            // NeckSpriteRenderer.DOColor(Color.red, 0.5f)
+            //     .SetLoops(2, LoopType.Yoyo)
+            //     .OnComplete(() => NeckSpriteRenderer.color = Color.white)
+            //     .Play();
+
             if (NormalizedHealth <= 0)
                 Kill();
         }

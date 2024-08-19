@@ -25,5 +25,12 @@ namespace Titan
             // IKManager.enabled = playerAsTargetExists;
             Animator.enabled = !playerAsTargetExists;
         }
+
+        public void SetRagdoll(bool isRagdoll)
+        {
+            IKManager.enabled = !isRagdoll;
+            Animator.enabled = !isRagdoll;
+            enabled = !isRagdoll;
+        }
     }
 }

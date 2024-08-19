@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 7975453665487705385}
   AgroRange: {fileID: 2162435914935408988}
-  Mouth: {fileID: 0}
+  Mouth: {fileID: 4163113705087636845}
   WeakSpots:
   - {fileID: 2047034933542826099}
   Hands:
@@ -62,15 +62,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1670505406027137334, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9907752
+      value: 0.9907741
       objectReference: {fileID: 0}
     - target: {fileID: 1670505406027137334, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13551582
+      value: -0.1355241
       objectReference: {fileID: 0}
     - target: {fileID: 2587985583762626373, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Name
       value: BigTitanV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148060020197559062, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3684585484304748326, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalScale.x
@@ -122,43 +126,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203038762063669823, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.18445484
+      value: 0.18445027
       objectReference: {fileID: 0}
     - target: {fileID: 5203038762063669823, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.982841
+      value: 0.98284185
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[0].w
-      value: 0.59190726
+      value: 0.59190476
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[0].z
-      value: 0.8060061
+      value: 0.8060079
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[1].w
-      value: 0.9907752
+      value: 0.9907741
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[1].z
-      value: -0.13551581
+      value: -0.1355241
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[2].w
-      value: 0.18445483
+      value: 0.18445027
       objectReference: {fileID: 0}
     - target: {fileID: 5975898947633947624, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_Chain.m_StoredLocalRotations.Array.data[2].z
-      value: 0.982841
+      value: 0.98284185
       objectReference: {fileID: 0}
     - target: {fileID: 6932053709050144741, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.59190726
+      value: 0.59190476
       objectReference: {fileID: 0}
     - target: {fileID: 6932053709050144741, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8060061
+      value: 0.8060079
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8500596206357037459, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
@@ -197,6 +201,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a04a83a98e754742bdb6607d1f1e031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4163113705087636845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7753192244711533328, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+  m_PrefabInstance: {fileID: 5935329377353416317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c2303014494007a832548bbeb655dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7024701066643812699 stripped
