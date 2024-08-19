@@ -136,19 +136,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1903455498325431362, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.18449096
+      value: 0.1844551
       objectReference: {fileID: 0}
     - target: {fileID: 1903455498325431362, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9828343
+      value: 0.98284096
       objectReference: {fileID: 0}
     - target: {fileID: 3633591818254014872, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5919381
+      value: 0.59190834
       objectReference: {fileID: 0}
     - target: {fileID: 3633591818254014872, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8059835
+      value: 0.8060053
       objectReference: {fileID: 0}
     - target: {fileID: 4403015343096674103, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalScale.x
@@ -200,11 +200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003592987348385611, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99078536
+      value: 0.99077547
       objectReference: {fileID: 0}
     - target: {fileID: 5003592987348385611, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13544151
+      value: -0.13551414
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 382699995}
   - component: {fileID: 382699998}
   - component: {fileID: 382699999}
+  - component: {fileID: 382700000}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -417,6 +418,21 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   backgroundHolder: {fileID: 495619853}
+--- !u!114 &382700000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382699994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a68d7583e6345d980a2c20dfb8b21a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1482267729}
+  deathAltitude: -18
+  restartAfterTimeInDeathZone: 1.5
 --- !u!1001 &495619852
 PrefabInstance:
   m_ObjectHideFlags: 0
