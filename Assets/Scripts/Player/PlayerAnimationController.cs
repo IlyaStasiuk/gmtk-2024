@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+public class PlayerAnimationController1 : MonoBehaviour
 {
-    [SerializeField] private  Animator animator;
-    public bool isTitan;
+    [SerializeField] private Animator animator;
     bool wasTitan;
     Vector2 pos;
     Camera cam;
 
     private void Start()
     {
-        isTitan = false;
-        wasTitan = isTitan;
+        wasTitan = false;
         cam = Camera.main;
     }
     void FixedUpdate()
     {
+        bool isTitan = PlayerTitanTransformation.instance.IsTitan;
+
         Vector2 velocity = new Vector2(transform.position.x, transform.position.y) - pos;
-        pos = new Vector2( transform.position.x, transform.position.y);
+        pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (isTitan)
         {
@@ -31,9 +31,10 @@ public class PlayerAnimationController : MonoBehaviour
         }
         animator.SetFloat("UpDownHead", (mousePos.y - transform.position.y) * 0.1f);
         animator.SetFloat("UpDown", velocity.y * 12f);
-        
-        if(isTitan != wasTitan) {
-            if(isTitan)
+
+        if (isTitan != wasTitan)
+        {
+            if (isTitan)
             {
                 animator.SetTrigger("toTitan");
             }
@@ -42,6 +43,6 @@ public class PlayerAnimationController : MonoBehaviour
                 animator.SetTrigger("toHuman");
             }
         }
-            wasTitan = isTitan;
+        wasTitan = isTitan;
     }
 }

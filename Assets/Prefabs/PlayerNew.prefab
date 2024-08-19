@@ -275,23 +275,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6432328a8d2f2f24faa5984e44c554ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimationController: {fileID: 596717277531347995}
-  _toTitanDuration: 1
+  _rigidbody: {fileID: 2178180683073558550}
+  _transformsToScale:
+  - {fileID: 4131388635515075989}
+  _toTitanDuration: 0.5
+  _titanScale: 3
+  _toTitanScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _toTitanEffect: {fileID: 0}
-  _toHumanDuration: 1
+  _toHumanDuration: 0.5
+  _toHumanScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _toHumanEffect: {fileID: 0}
-  OnTransformedToTitanStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToTitanFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToHumanStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransformedToHumanFinished:
-    m_PersistentCalls:
-      m_Calls: []
+  _toTitanSpeedThreshold: 40
+  _maxTitanDuration: 1
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131388635515075989}
   - component: {fileID: 3384444850393235694}
-  - component: {fileID: 8752627626636219485}
+  - component: {fileID: 7663901212864164296}
   m_Layer: 0
   m_Name: TitanAttacker
   m_TagString: Player
@@ -320,7 +361,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.007905132, w: 0.99996877}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5503943488604797983}
@@ -339,10 +380,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 9102735878886471443, guid: 4d24616d7da9d5b4bb6c2065a669c8b5, type: 3}
   PlayerRoot: {fileID: 2178180683073558550}
-  Health: 100
+  Health: 1
   Damage: 10
---- !u!58 &8752627626636219485
-CircleCollider2D:
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 992298825107188912}
+        m_TargetAssemblyTypeName: PlayerTitanTransformation, Assembly-CSharp
+        m_MethodName: OnTitanHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!70 &7663901212864164296
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -374,8 +430,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1001 &5916174724201773198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -560,17 +616,6 @@ PrefabInstance:
       addedObject: {fileID: 3593791145219022810}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
---- !u!114 &596717277531347995 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7099248559749021439, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
-  m_PrefabInstance: {fileID: 7692833985781768932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6c73e7b7168214f972081cd1a357d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2451751426595808793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5243369943384179965, guid: 94ce38ee6cac8e044a228072ae24f866, type: 3}
