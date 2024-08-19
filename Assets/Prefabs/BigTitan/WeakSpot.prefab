@@ -148,8 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5956442101940451028}
   _spriteRenderer: {fileID: 3586657312897308572}
-  _maxHealth: 30
-  _health: 30
+  _maxHealth: 10
+  _health: 10
 --- !u!95 &5956442101940451028
 Animator:
   serializedVersion: 5
