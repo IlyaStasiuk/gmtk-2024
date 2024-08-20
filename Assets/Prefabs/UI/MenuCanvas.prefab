@@ -184,11 +184,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 7442336428842775407}
-  _scoreTweenColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   _effectAnimDuration: 0.5
   _textAnimDuration: 0.8
   _tweenMaxScaleSize: 1.15
   _scoreTweenEase: 9
+  _scoreTweenColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  _scoreTweenColorSmallTitan: {r: 0.69, g: 1, b: 0.02, a: 1}
+  _scoreTweenColorMediumTitan: {r: 1, g: 0.78, b: 0, a: 1}
+  _scoreTweenColorBigTitan: {r: 1, g: 0.2, b: 0, a: 1}
 --- !u!1 &8517004234867234229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1658,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3097643851635923787, guid: c5cf9c473e7c3cb489588f0833d9ba56, type: 3}
+      propertyPath: GameUI
+      value: 
+      objectReference: {fileID: 6165455976970679565}
     - target: {fileID: 3097643851635923787, guid: c5cf9c473e7c3cb489588f0833d9ba56, type: 3}
       propertyPath: screenCredits
       value: 

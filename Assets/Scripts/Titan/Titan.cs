@@ -81,7 +81,7 @@ namespace Titan
         {
             if (NormalizedHealth <= 0)
             {
-                MenuScreen.Instance.GameUI.AddScore(GetScoreByScale(transform.localScale.y));
+                MenuScreen.Instance?.GameUI.AddScore(GetScoreByScale(transform.localScale.y));
                 SoundManager.Instance.playSound(GetDeathSoundByScale());
                 CameraShaker.Instance.Shake(1);
 
