@@ -33,8 +33,9 @@ public class GrapplingHook : MonoBehaviour
 
     RaycastHit2D[] _hitsCache = new RaycastHit2D[16];
 
-    float CurrentDistance => Vector2.Distance(_origin.position, transform.position);
-    float MaxDistance => _grapplingRope.MaxLength;
+    public float DistancePercentage => CurrentDistance / MaxDistance;
+    public float CurrentDistance => Vector2.Distance(_origin.position, transform.position);
+    public float MaxDistance => _grapplingRope.MaxLength;
     public HookState State => _state;
 
     void Awake()
@@ -175,7 +176,7 @@ public class GrapplingHook : MonoBehaviour
                 if (_nearClippingPlane > distance)
                 {
                     validHit = false;
-                    Debug.DrawLine(_origin.position, hit.point, Color.red, 1f);
+                    // Debug.DrawLine(_origin.position, hit.point, Color.red, 1f);
                 }
 
                 bool layerCheck = ((1 << hit.collider.gameObject.layer) & (int)_grappableLayers) != 0;

@@ -18,7 +18,9 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        _dashDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+        _dashDirection = Vector2.up;
+        // _dashDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        _dashDirection.Normalize();
     }
 
     void FixedUpdate()
@@ -30,13 +32,16 @@ public class PlayerDash : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!_isDashing && !_dashIsUsed)
             {
-                float speed = _rb.velocity.magnitude;
-                if (!_dashIsUsed && speed < _maxSpeedToDash)
+                if (Input.GetKey(KeyCode.Space))
                 {
-
-                    StartDash();
+                    float speedInDirectionOfDash = Vector2.Dot(_rb.velocity, _dashDirection);
+                    // Debug.Log("Rb velocity: " + _rb.velocity + "Dash direction: " + _dashDirection + "Speed in direction of dash: " + speedInDirectionOfDash);
+                    if (speedInDirectionOfDash < _maxSpeedToDash)
+                    {
+                        StartDash();
+                    }
                 }
             }
         }
@@ -45,16 +50,9 @@ public class PlayerDash : MonoBehaviour
         {
             if (!Input.GetKey(KeyCode.Space))
             {
-                // float progress = Mathf.Clamp01((Time.time - _dashStartTime) / _dashDuration);
-                // UpdateDash(progress);
-
-                // if (progress >= 1f) EndDash();
                 EndDash();
             }
             // else
-            // {
-            //     EndDash();
-            // }
         }
     }
 
@@ -65,22 +63,22 @@ public class PlayerDash : MonoBehaviour
 
     void StartDash()
     {
-        if (_isDashing) return;
+        Debug.Assert(!_isDashing, "Trying to start a dash while already dashing");
+        Debug.Assert(!_dashIsUsed, "Trying to start a dash while it is already used");
 
         _isDashing = true;
         _dashStartTime = Time.time;
         _dashIsUsed = true;
 
         float force = _dashForceMultiplier;
+        // _rb.AddForce(_dashDirection * force, ForceMode2D.Impulse);
         _rb.AddForce(_dashDirection * force, ForceMode2D.Impulse);
 
-        // Debug.Log("StartDash");
+        // Debug.DrawLine(transform.position, transform.position + (Vector3)_dashDirection * force, Color.red, 1f);
     }
 
     void UpdateDash(float progress)
     {
-        if (!_isDashing) return;
-
         // float force = _dashForce.Evaluate(progress) * _dashForceMultiplier;
         // _rb.AddForce(_dashDirection * force, ForceMode2D.Impulse);
         // Debug.Log("UpdateDash");
@@ -88,8 +86,6 @@ public class PlayerDash : MonoBehaviour
 
     void EndDash()
     {
-        if (!_isDashing) return;
-
         _isDashing = false;
 
         // Debug.Log("EndDash");

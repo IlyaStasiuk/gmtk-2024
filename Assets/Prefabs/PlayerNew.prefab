@@ -191,8 +191,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 0.2
-  m_AngularDrag: 0.2
+  m_LinearDrag: 0.4
+  m_AngularDrag: 0.4
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -262,8 +262,32 @@ MonoBehaviour:
   _targetRigidbody: {fileID: 2178180683073558550}
   _grapplingGunLeft: {fileID: 6037813022770708975}
   _grapplingGunRight: {fileID: 8064380123911072901}
-  _maxAngleToDash: 10
-  _dashForce: 2
+  _maxAngleToDash: 45
+  _dashForce: 100
+  _dashForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.75
+      value: 0.9891319
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _velocityChangeSpeed: 1
 --- !u!114 &992298825107188912
 MonoBehaviour:
@@ -391,8 +415,8 @@ MonoBehaviour:
   _rb: {fileID: 2178180683073558550}
   _grapplingGunLeft: {fileID: 6037813022770708975}
   _grapplingGunRight: {fileID: 8064380123911072901}
-  _dashForceMultiplier: 350
-  _maxSpeedToDash: 20
+  _dashForceMultiplier: 50
+  _maxSpeedToDash: -3
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0

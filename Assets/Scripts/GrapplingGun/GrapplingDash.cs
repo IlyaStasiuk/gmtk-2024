@@ -10,6 +10,7 @@ public class GrapplingDash : MonoBehaviour
 
     [SerializeField] float _maxAngleToDash = 10f;
     [SerializeField] float _dashForce = 1f;
+    [SerializeField] AnimationCurve _dashForceCurve;
     [SerializeField] float _velocityChangeSpeed = 1f;
 
     void FixedUpdate()
@@ -36,9 +37,11 @@ public class GrapplingDash : MonoBehaviour
 
             float speed = _targetRigidbody.velocity.magnitude;
             Vector2 targetVelocity = middleDirection * speed;
-
             _targetRigidbody.velocity = Vector2.Lerp(_targetRigidbody.velocity, targetVelocity, Time.deltaTime * _velocityChangeSpeed);
-            _targetRigidbody.AddForce(middleDirection * _dashForce, ForceMode2D.Force);
+
+            float progress = _grapplingGunLeft.GrapplingHook.DistancePercentage;
+            float dashForce = _dashForceCurve.Evaluate(progress) * _dashForce;
+            _targetRigidbody.AddForce(middleDirection * dashForce, ForceMode2D.Force);
 
             // Debug.DrawRay(gunPosition, middleDirection * speed, Color.red);
         }
