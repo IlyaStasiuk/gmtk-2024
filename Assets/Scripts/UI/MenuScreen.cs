@@ -74,8 +74,8 @@ namespace Menu
         [SerializeField] private float tweenDuration = 2.0f;
         [SerializeField] private Ease tweenEase = Ease.InOutQuad;
 
-        private int _comicsShownTimes = 0;
-        private int _comicsMaxShownTimes = 1;
+        private static int _comicsShownTimes = 0;
+        private static int _comicsMaxShownTimes = 1;
 
         private void Awake()
         {
