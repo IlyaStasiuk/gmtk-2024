@@ -119,13 +119,14 @@ public class EndlessScroller : MonoBehaviour
 
             float instanceX = scrollerInstance.instance.transform.position.x;
 
-            if (instanceX > rightBound)
+            const float margin = 1f;
+            if (instanceX > rightBound + margin)
             {
                 DespawnInstance(i);
                 nextSpawnPointRight = instanceX;
             }
 
-            if (instanceX < leftBound)
+            if (instanceX < leftBound - margin)
             {
                 DespawnInstance(i);
                 nextSpawnPointLeft = instanceX;

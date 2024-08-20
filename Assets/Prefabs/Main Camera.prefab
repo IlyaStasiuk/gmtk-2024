@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5681561539766745982}
   - component: {fileID: 2289379210375714515}
   - component: {fileID: 1727899122557040658}
+  - component: {fileID: 4566819466502147530}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -72,7 +73,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -192,24 +193,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1.1405226
-      outSlope: 1.1405226
+      inSlope: 4.958986
+      outSlope: 4.958986
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 9.605967
-      value: 10.955822
-      inSlope: 1.0121926
-      outSlope: 1.0121926
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
       time: 20.165413
-      value: 20.288921
+      value: 100
       inSlope: 0.0754555
       outSlope: 0.0754555
       tangentMode: 0
@@ -236,6 +228,48 @@ MonoBehaviour:
   target: {fileID: 0}
   deathAltitude: -18
   restartAfterTimeInDeathZone: 1.5
+--- !u!114 &4566819466502147530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699819572013600050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3a893062e2f1b42ae570f420702d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 3099753508866738219}
+  _target: {fileID: 0}
+  _maxZoomOut: 40
+  _minZoomOutTargetSpeed: 10
+  _maxZoomOutTargetSpeed: 50
+  _zoomOutSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _zoomOutSpeedMultiplier: 1
 --- !u!1 &7844406595326935098
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,9 +314,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce33f1edca304d8d812fff3839afecfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  spawnIntervalMin: 20
-  spawnIntervalMax: 40
-  spawnOffset: 20
+  spawnData:
+    prefabs:
+    - {fileID: 0}
+    minScale: 5
+    maxScale: 20
+    scaleProbability:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -0.005432129
+        inSlope: 1.6492877
+        outSlope: 1.6492877
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.12659885
+      - serializedVersion: 3
+        time: 0.823286
+        value: 0.37044108
+        inSlope: 0.7353581
+        outSlope: 0.7353581
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.56767
+      - serializedVersion: 3
+        time: 1
+        value: 1.0163879
+        inSlope: 9.756934
+        outSlope: 9.756934
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.30162576
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  spawnIntervalMin: 30
+  spawnIntervalMax: 50
+  spawnOffset: 150
   movementSpeed: -3
   altitude: -20

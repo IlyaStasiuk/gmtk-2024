@@ -384,6 +384,14 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5791895534391139112, guid: 57da1362e1b2db5498b01d60bd97ab1c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997601014219528277, guid: 57da1362e1b2db5498b01d60bd97ab1c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -991,6 +999,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fd9c63d5a9cf445ae9ae437a3958bf, type: 3}
+--- !u!50 &1626987503 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2178180683073558550, guid: 574a542e8b56b804d82d71f3ecca6dca, type: 3}
+  m_PrefabInstance: {fileID: 1482267728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2041975892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,6 +1327,10 @@ PrefabInstance:
       propertyPath: backgroundHolder
       value: 
       objectReference: {fileID: 495619853}
+    - target: {fileID: 4566819466502147530, guid: e167d230de1c35f49983156a92d1ac8b, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1626987503}
     - target: {fileID: 8608295040520096047, guid: e167d230de1c35f49983156a92d1ac8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
