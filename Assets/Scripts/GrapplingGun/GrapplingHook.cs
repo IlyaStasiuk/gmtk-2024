@@ -76,7 +76,7 @@ public class GrapplingHook : MonoBehaviour
 
         _grapplingRope.SetSinWave();
 
-        SoundManager.Instance.playSoundRandom(SoundType.GRAPLING_SHOT_1, SoundType.GRAPLING_SHOT_2);
+        SoundManager.Instance.playSoundRandom(SoundType.GRAPLING_SHOT_1);
     }
 
     public void Retract()
