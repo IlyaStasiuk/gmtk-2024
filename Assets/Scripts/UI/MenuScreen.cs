@@ -77,6 +77,8 @@ namespace Menu
         private static int _comicsShownTimes = 0;
         private static int _comicsMaxShownTimes = 1;
 
+        private static bool _isFirstTime = true;
+
         private void Awake()
         {
             _instance = this;
@@ -92,10 +94,18 @@ namespace Menu
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
 
             comicsScreen.gameObject.SetActive(false);
-            musicVolumeSlider.value = (musicVolumeSlider.maxValue - musicVolumeSlider.minValue) * 0.65f;
-            sfxVolumeSlider.value = (sfxVolumeSlider.maxValue - sfxVolumeSlider.minValue) * 0.5f;
+            InitSoundValue();
         }
 
+        private void InitSoundValue()
+        {
+            if (!_isFirstTime)
+                return;
+
+            musicVolumeSlider.normalizedValue = 0.65f;
+            sfxVolumeSlider.normalizedValue = 0.5f;
+            _isFirstTime = false;
+        }
 
         [Button]
         public void startGame()
