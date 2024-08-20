@@ -1752,6 +1752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8517004235586152954}
     m_Modifications:
+    - target: {fileID: 1388201492193673121, guid: c5cf9c473e7c3cb489588f0833d9ba56, type: 3}
+      propertyPath: m_text
+      value: THE RUMBLING
+      objectReference: {fileID: 0}
     - target: {fileID: 2049606280440782033, guid: c5cf9c473e7c3cb489588f0833d9ba56, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -380,7 +380,11 @@ PrefabInstance:
         Karyna Kotulych
 
         Ilya
-        Stasiuk'
+        Stasiuk
+
+        Danylo Vaschchevskyi
+
+        Andrii Rymar'
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_fontSize
