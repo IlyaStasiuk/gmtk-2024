@@ -358,8 +358,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   _toHumanEffect: {fileID: 0}
   _toTitanSpeedThreshold: 30
-  _maxTitanDuration: 2
-  _transformDelay: 1
+  _maxTitanDuration: 3
+  _transformDelay: 0.5
 --- !u!114 &7058166759121101506
 MonoBehaviour:
   m_ObjectHideFlags: 0

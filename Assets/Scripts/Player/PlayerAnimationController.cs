@@ -16,7 +16,7 @@ public class PlayerAnimationController1 : MonoBehaviour
     }
     void FixedUpdate()
     {
-        bool isTitan = PlayerTitanTransformation.instance.IsTitan;
+        bool isTitan = PlayerTitanTransformation.instance.TransformInProgressIsTitan;
 
         Vector2 velocity = new Vector2(transform.position.x, transform.position.y) - pos;
         pos = new Vector2(transform.position.x, transform.position.y);
