@@ -20,6 +20,10 @@ namespace Titan
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
 
+        public GameObject killEffect;
+        public GameObject superKillEffect;
+        public Transform spawnPos;
+
         public SpriteRenderer NeckSpriteRenderer;
 
         [ShowNativeProperty]
@@ -139,7 +143,22 @@ namespace Titan
         {
             // Debug.Log($"Titan {name} died");
             SetRagdoll(true);
+
             if (decapitate) SuperKill();
+
+            if (killEffect != null)
+            {
+                GameObject effect = Instantiate(killEffect);
+                effect.transform.position = spawnPos.position;
+                Destroy(effect, 10);
+            }
+
+            if (superKillEffect != null)
+            {
+                GameObject effect = Instantiate(superKillEffect);
+                effect.transform.position = spawnPos.position;
+                Destroy(effect, 10);
+            }
         }
 
         [Button]

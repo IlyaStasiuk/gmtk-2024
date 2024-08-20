@@ -9,7 +9,7 @@ public class PlayerContext : MonoBehaviour
     // public bool IsTitan => PlayerTitanTransformation.instance.IsTitan;
     // public bool TransformInProgressIsTitan => PlayerTitanTransformation.instance.TransformInProgressIsTitan;
     public float Speed => _playerRigidbody.velocity.magnitude;
-    public static float SpeedToKillTitan => 40f;
+    public static float SpeedToKillTitan => 30f;
 
     Rigidbody2D _playerRigidbody;
 

@@ -355,7 +355,7 @@ MonoBehaviour:
   _start: {fileID: 7506896364247244710}
   _end: {fileID: 8411978611406082220}
   _pointCount: 100
-  _maxLength: 50
+  _maxLength: 75
   _ropeDrag: 0.6
   _ropeOffsetDrag: 5
   _straighteningSpeed: 3
@@ -633,6 +633,7 @@ MonoBehaviour:
   _grapplingHook: {fileID: 7968901558273334819}
   _grapplingSping: {fileID: 9186609098684317386}
   _leftButton: 1
+  _allowHookByClick: 0
   rotateOverTime: 0
   rotationSpeed: 12.9
 --- !u!114 &9186609098684317386

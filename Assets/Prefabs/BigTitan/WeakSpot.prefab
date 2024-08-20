@@ -150,6 +150,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 3586657312897308572}
   _maxHealth: 10
   _health: 10
+  _minForceToTakeDamage: 30
 --- !u!95 &5956442101940451028
 Animator:
   serializedVersion: 5
