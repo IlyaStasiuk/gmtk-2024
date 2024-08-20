@@ -166,7 +166,7 @@ MonoBehaviour:
   _ignoredObjects:
   - {fileID: 0}
   - {fileID: 5766855484842308995}
-  _nearClippingPlane: 1
+  _nearClippingPlane: 5
   _flyingSpeed:
     serializedVersion: 2
     m_Curve:

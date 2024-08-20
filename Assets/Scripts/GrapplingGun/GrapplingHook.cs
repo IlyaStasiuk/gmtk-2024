@@ -17,14 +17,13 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField] Transform _origin;
 
     [SerializeField] List<GameObject> _ignoredObjects;
-    // [SerializeField] private float maxDistance = 4;
-    [SerializeField] private float _nearClippingPlane = 1f;
+    [SerializeField] float _nearClippingPlane = 1f;
     [SerializeField] AnimationCurve _flyingSpeed;
     [SerializeField] float _flyinghSpeedMultiplier = 3f;
     [SerializeField] AnimationCurve _retractSpeed;
     [SerializeField] float _retractSpeedMultiplier = 1f;
-    [SerializeField] private LayerMask _grappableLayers;
-    [SerializeField] private ParticleSystem _fireEffect;
+    [SerializeField] LayerMask _grappableLayers;
+    [SerializeField] ParticleSystem _fireEffect;
 
     HookState _state;
     Vector2 _flyingDirection;
@@ -173,7 +172,11 @@ public class GrapplingHook : MonoBehaviour
             else
             {
                 float distance = Vector2.Distance(hit.point, _origin.position);
-                if (_nearClippingPlane > distance) validHit = false;
+                if (_nearClippingPlane > distance)
+                {
+                    validHit = false;
+                    Debug.DrawLine(_origin.position, hit.point, Color.red, 1f);
+                }
 
                 bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)_grappableLayers) != 0;
                 if (!layerCheck) validHit = false;

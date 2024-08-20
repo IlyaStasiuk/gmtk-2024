@@ -18,8 +18,6 @@ public class PlayerLimits : MonoBehaviour
             _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
         }
 
-        Debug.Log(speed);
-
         if (_rigidbody.velocity.y > 0)
         {
             float height = _rigidbody.position.y;
