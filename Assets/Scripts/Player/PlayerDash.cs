@@ -25,6 +25,7 @@ public class PlayerDash : MonoBehaviour
 
     void FixedUpdate()
     {
+        bool inputEnabled = !Menu.MenuScreen.Instance || !Menu.MenuScreen.Instance.IsPaused;
         bool grappled = _grapplingGunLeft.GrapplingHook.State == GrapplingHook.HookState.Grappled || _grapplingGunRight.GrapplingHook.State == GrapplingHook.HookState.Grappled;
         if (grappled)
         {
@@ -34,7 +35,7 @@ public class PlayerDash : MonoBehaviour
         {
             if (!_isDashing && !_dashIsUsed)
             {
-                if (Input.GetKey(KeyCode.Space) && !Menu.MenuScreen.Instance.IsPaused)
+                if (Input.GetKey(KeyCode.Space) && inputEnabled)
 
                 {
                     float speedInDirectionOfDash = Vector2.Dot(_rb.velocity, _dashDirection);
@@ -49,7 +50,7 @@ public class PlayerDash : MonoBehaviour
 
         if (_isDashing)
         {
-            if (!Input.GetKey(KeyCode.Space) && !Menu.MenuScreen.Instance.IsPaused)
+            if (!Input.GetKey(KeyCode.Space) && inputEnabled)
             {
                 EndDash();
             }

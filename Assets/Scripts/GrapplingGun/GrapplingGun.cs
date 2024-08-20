@@ -41,7 +41,7 @@ public class GrapplingGun : MonoBehaviour
         if (_grapplingHook.State == GrapplingHook.HookState.Idle) RotateGun(mousePosition, true);
         else RotateGun(_grapplingHook.transform.position, true);
 
-        if (!Menu.MenuScreen.Instance.IsPaused)
+        if (!Menu.MenuScreen.Instance || !Menu.MenuScreen.Instance.IsPaused)
         {
             if (_allowHookByClick)
             {

@@ -90,6 +90,9 @@ namespace Menu
             SoundManager.Instance.playMenuMusic();
             musicVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setMusicVolume);
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
+
+            musicVolumeSlider.value = musicVolumeSlider.maxValue * 0.65f;
+            sfxVolumeSlider.value = sfxVolumeSlider.maxValue * 0.5f;
         }
 
 

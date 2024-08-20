@@ -2381,20 +2381,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_text
-      value: 'Shift => titan
+      value: '
 
-        Space => jump
+        <b>LMB + RMB</b> - Use hooks
 
-        Mouse1 Mouse 2 => main
-        controls'
+
+        <b>Shift</b> - Transform
+        to Titan
+
+
+        <b>Space</b> - Jump'
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_fontSize
-      value: 22
+      value: 36.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_fontSizeBase
-      value: 22
+      value: 36.75
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_enableAutoSizing
@@ -2402,11 +2410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 256
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_HorizontalAlignment
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8083904121919657268, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_Name

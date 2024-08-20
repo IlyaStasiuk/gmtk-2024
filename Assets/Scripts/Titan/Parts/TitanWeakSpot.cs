@@ -15,6 +15,7 @@ namespace Titan
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _health = 100f;
         [SerializeField] private float _minForceToTakeDamage = 40f;
+        
 
         public float MaxHealth => _maxHealth;
         public float Health => _health;
