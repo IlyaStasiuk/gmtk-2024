@@ -78,7 +78,7 @@ public class SoundManager : MonoBehaviour
     public void setMusicVolume(float volume) => audioMixer.SetFloat("MusicVolume", volume < -38 ? -80 : volume);
     public void setSFXVolume(float volume) => audioMixer.SetFloat("SFXVolume", volume < -38 ? -80 : volume);
 
-    public void shakeCamera() => FindObjectOfType<CameraScript>().tweenDamageTaken();
+    public void shakeCamera() => FindObjectOfType<CameraShaker>().Shake();
 
     private void fadeMusic(SoundType end_music)
     {

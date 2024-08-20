@@ -377,11 +377,18 @@ PrefabInstance:
 
         VLADYSLAV BORODAI
 
-'
+        Karyna Kotulych
+
+        Ilya
+        Stasiuk'
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_fontSize
       value: 35.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
+      propertyPath: m_fontStyle
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5517729436388096428, guid: 6e67637c95bf0484dad54488702f7eb7, type: 3}
       propertyPath: m_fontSizeBase

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Menu;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.LowLevel;
 
 
 namespace Titan
@@ -19,6 +19,7 @@ namespace Titan
         public Transform HeadPos;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
+        
         public SpriteRenderer NeckSpriteRenderer;
 
         [ShowNativeProperty]
@@ -41,10 +42,10 @@ namespace Titan
 
         private void Awake()
         {
-            Animator.SetFloat("speed_multiplier", 1 / Mathf.Sqrt(transform.localScale.y - 4));
-            Hand.GetComponent<Animator>().SetFloat("speed_multiplier", 1 / (Mathf.Sqrt((transform.localScale.y - 4) * 2)));
+            Animator.SetFloat("speed_multiplier",1/Mathf.Sqrt(transform.localScale.y-4));
+            Hand.GetComponent<Animator>().SetFloat("speed_multiplier", 1 /( Mathf.Sqrt((transform.localScale.y-4)*2)));
             AgroRange.OnAgro += OnAgro;
-
+            
             foreach (var weakSpot in WeakSpots)
                 weakSpot.OnPartDestroy += OnWeakSpotDie;
         }
@@ -57,7 +58,7 @@ namespace Titan
 
         private void OnAgro(PlayerTitanAttacker player)
         {
-            // Debug.Log($"Titan {name} agro: {player?.name}");
+            Debug.Log($"Titan {name} agro: {player?.name}");
             SetHandsFollowTarget(player);
         }
 
@@ -75,21 +76,40 @@ namespace Titan
             AgroRange.enabled = !isRagdoll;
             enabled = !isRagdoll;
         }
-
+        
         private void OnWeakSpotDie(float force)
         {
-            // NeckSpriteRenderer.DOColor(Color.red, 0.5f)
-            //     .SetLoops(2, LoopType.Yoyo)
-            //     .OnComplete(() => NeckSpriteRenderer.color = Color.white)
-            //     .Play();
-
             if (NormalizedHealth <= 0)
             {
+                MenuScreen.Instance.GameUI.AddScore(GetScoreByScale(transform.localScale.y));
                 SoundManager.Instance.playSound(GetDeathSoundByScale());
+                CameraShaker.Instance.Shake(1);
 
-                bool decapitate = PlayerTitanTransformation.instance.IsTitan;
-                Kill(decapitate);
+                Kill();
+                SuperKill();
             }
+        }
+
+        public int GetCameraShakePowerByScaleOnDeath()
+        {
+            return transform.localScale.y switch
+            {
+                <= 10 => 1,
+                <= 15 => 2,
+                > 20 => 3,
+                _ => 1
+            };
+        }
+
+        public static int GetScoreByScale(float scaleY)
+        {
+            //if want to change, change the values in GameUI.AddScore also
+            return scaleY switch
+            {
+                <= 10 => 100,
+                <= 15 => 500,
+                _ => 1000
+            };
         }
 
         private SoundType GetDeathSoundByScale()
@@ -104,25 +124,16 @@ namespace Titan
 
         public void SuperKill()
         {
-            if (Head) Head.SetActive(false);
+            Head.SetActive(false);
 
-            GameObject LooseHead = Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
-            LooseHead.transform.localScale = transform.localScale;
-            Vector2 force;
-            force.x = 0;
-            force.y = 600;
-            LooseHead.GetComponent<Rigidbody2D>().AddForce(force);
+            Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
 
         }
         [Button]
-        public void Kill(bool decapitate)
+        public void Kill()
         {
-
-            // Debug.Log($"Titan {name} died");
-
+            Debug.Log($"Titan {name} died");
             SetRagdoll(true);
-
-            if (decapitate) SuperKill();
         }
 
         [Button]

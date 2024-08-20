@@ -31,6 +31,8 @@ namespace Menu
         [SerializeField] private RectTransform screenControls;
         [SerializeField] private RectTransform screenCredits;
         [SerializeField] private RectTransform screenSettings;
+        [SerializeField] private RectTransform screenGameGUI;
+        [SerializeField] public GameUI GameUI;
 
         [Header("Screen Settings")]
         [SerializeField] private Slider musicVolumeSlider;
@@ -59,6 +61,7 @@ namespace Menu
             SoundManager.Instance.playMenuMusic();
             musicVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setMusicVolume);
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
+            GameUI.SetScoreInstant(0);
         }
 
 
@@ -70,6 +73,8 @@ namespace Menu
             canvasGroup.blocksRaycasts = false;
             Sequence sequence = DOTween.Sequence().SetUpdate(true);
             sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart).SetUpdate(true));
+            screenGameGUI.anchoredPosition = new Vector2(-2560, screenGameGUI.anchoredPosition.y);
+            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true));
         }
 
         [Button]
