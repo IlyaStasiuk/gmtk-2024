@@ -9,17 +9,24 @@ public class SceneRestarter : MonoBehaviour
     [SerializeField] private GameObject deathParticles;
     [SerializeField] private float restartAfterTimeInDeathZone = 1.0f;
 
-    private bool isInDeathZone = false;
+    private bool isDead = false;
     private float durationInDeathZone = 0.0f;
 
     public static SceneRestarter instance;
 
-    public bool IsInDeathZone => isInDeathZone;
+    public bool IsInDeathZone => isDead;
     public float DurationInDeathZone => durationInDeathZone;
 
     public void SetPlayerDied()
     {
-        isInDeathZone = true;
+        isDead = true;
+        SoundManager.Instance.playSound(SoundType.TITAN_SCREAM_1);
+    }
+
+    void DeathByFall()
+    {
+        SetPlayerDied();
+        Instantiate(deathParticles, target.position, Quaternion.identity);
     }
 
     private void Awake()
@@ -29,23 +36,21 @@ public class SceneRestarter : MonoBehaviour
 
     private void LateUpdate()
     {
-        bool higherThanDeathAltitude = target.position.y > deathAltitude;
+        bool lowerThanDeathAltitude = target.position.y < deathAltitude;
 
-        if (higherThanDeathAltitude && !isInDeathZone)
-            return;
-
-        if (!higherThanDeathAltitude && !isInDeathZone)
+        if (!isDead && lowerThanDeathAltitude)
         {
-            Instantiate(deathParticles, target.position, Quaternion.identity);
+            DeathByFall();
         }
 
-        isInDeathZone = true;
-
-        durationInDeathZone += Time.deltaTime;
-
-        if (durationInDeathZone > restartAfterTimeInDeathZone)
+        if (isDead)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            durationInDeathZone += Time.deltaTime;
+
+            if (durationInDeathZone > restartAfterTimeInDeathZone)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            }
         }
     }
 }
