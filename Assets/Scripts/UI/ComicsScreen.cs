@@ -20,10 +20,10 @@ public class ComicsScreen : MonoBehaviour
         {
             var iCached = i;
             _comicsImages[i].color = new Color(1, 1, 1, 0);
-            sequence.Append(_comicsImages[iCached].DOFade(1, 1));
+            sequence.Append(_comicsImages[iCached].DOFade(1, 0.4f));
             sequence.AppendCallback(() => SoundManager.Instance.playSound(_comicsSounds[iCached]));
             sequence.AppendInterval(_timeBetweenComics);
-            sequence.Append(_comicsImages[iCached].DOFade(0, 1));
+            sequence.Append(_comicsImages[iCached].DOFade(0, 0.4f));
         }
 
         sequence.AppendCallback(() => gameObject.SetActive(false));
