@@ -20,6 +20,9 @@ public class SoundManager : MonoBehaviour
 
     public void playSound(SoundType sound_type)
     {
+        if(sound_type == SoundType.NONE)
+            return;
+
         if (_audio_clips.TryGetValue(sound_type, out AudioClip clip))
         {
         }
@@ -129,6 +132,8 @@ public enum SoundType
     TITAN_DEATH_SMALL,
     TITAN_DEATH_MEDIUM,
     TITAN_DEATH_BIG,
+    
+    BOOM_1,
 
     GAME_SFX_AFTER_LAST,
 
