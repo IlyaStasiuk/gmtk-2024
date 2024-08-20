@@ -9,6 +9,7 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField] GrapplingHook _grapplingHook;
     [SerializeField] GrapplingSpring _grapplingSping;
     [SerializeField] private bool _leftButton = true;
+    [SerializeField] private bool _allowHookByClick = false;
     [SerializeField] private bool rotateOverTime = true;
     [Range(0, 80)][SerializeField] private float rotationSpeed = 4;
 
@@ -20,27 +21,51 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
+        if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingSping.Grapple();
+        else _grapplingSping.EndGrapple();
+
         if (SceneRestarter.instance.IsInDeathZone)
         {
-            if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+            _grapplingHook.Retract();
             return;
         }
 
         if (PlayerTitanTransformation.instance.IsTitan)
         {
-            if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+            _grapplingHook.Retract();
             return;
         }
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(Button))
-        {
-            _target = mousePosition;
-        }
-
         if (_grapplingHook.State == GrapplingHook.HookState.Idle) RotateGun(mousePosition, true);
         else RotateGun(_grapplingHook.transform.position, true);
+
+        if (_allowHookByClick)
+        {
+            if (Input.GetKeyDown(Button))
+            {
+                _target = mousePosition;
+            }
+
+            if (Input.GetKeyDown(Button) || Input.GetKeyUp(Button))
+            {
+                if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+            }
+
+        }
+        else
+        {
+            if (Input.GetKeyDown(Button))
+            {
+                if (_grapplingHook.State == GrapplingHook.HookState.Idle) _target = mousePosition;
+            }
+
+            if (!Input.GetKey(Button))
+            {
+                if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+            }
+        }
 
         if (_target.HasValue && _grapplingHook.State == GrapplingHook.HookState.Idle)
         {
@@ -48,14 +73,6 @@ public class GrapplingGun : MonoBehaviour
             _grapplingHook.Launch(launchVector.normalized);
             _target = null;
         }
-
-        if (_grapplingHook.State == GrapplingHook.HookState.Grappled)
-        {
-            if (Input.GetKeyDown(Button) || Input.GetKeyUp(Button)) _grapplingHook.Retract();
-        }
-
-        if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingSping.Grapple();
-        else _grapplingSping.EndGrapple();
     }
 
     void RotateGun(Vector3 lookPoint, bool allowRotationOverTime)

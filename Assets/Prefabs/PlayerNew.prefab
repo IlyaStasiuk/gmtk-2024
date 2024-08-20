@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 5984815222229211973}
   - component: {fileID: 3904582556628491397}
   - component: {fileID: 992298825107188912}
+  - component: {fileID: 7058166759121101506}
+  - component: {fileID: 3560590045141981053}
   m_Layer: 6
   m_Name: PlayerNew
   m_TagString: Player
@@ -188,7 +190,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 2
   m_LinearDrag: 0.2
   m_AngularDrag: 0.2
   m_GravityScale: 1
@@ -331,8 +333,66 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _toHumanEffect: {fileID: 0}
-  _toTitanSpeedThreshold: 40
-  _maxTitanDuration: 1
+  _toTitanSpeedThreshold: 30
+  _maxTitanDuration: 2
+  _transformDelay: 1
+--- !u!114 &7058166759121101506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386308992846204692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2411624de867c1c4c8aef47749e64eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 2178180683073558550}
+  _maxSpeed: 100
+  _slowDownHeight: 120
+  _maxHeight: 150
+  _heightSlowDownCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0013428
+      value: 1.0163078
+      inSlope: 2.7631323
+      outSlope: 2.7631323
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.080535695
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3560590045141981053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386308992846204692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609370c8716851e48a0e1d93b8fde8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 2178180683073558550}
+  _grapplingGunLeft: {fileID: 6037813022770708975}
+  _grapplingGunRight: {fileID: 8064380123911072901}
+  _dashForceMultiplier: 350
+  _maxSpeedToDash: 20
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0
