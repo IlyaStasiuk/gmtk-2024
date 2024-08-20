@@ -75,7 +75,7 @@ namespace Menu
         [SerializeField] private Ease tweenEase = Ease.InOutQuad;
 
         private int _comicsShownTimes = 0;
-        private int _comicsMaxShownTimes = 3;
+        private int _comicsMaxShownTimes = 1;
 
         private void Awake()
         {
