@@ -15,6 +15,7 @@ public class GrapplingHook : MonoBehaviour
 
     [SerializeField] GrapplingRope _grapplingRope;
     [SerializeField] Transform _origin;
+    [SerializeField] GameObject _visual;
 
     [SerializeField] List<GameObject> _ignoredObjects;
     [SerializeField] float _nearClippingPlane = 1f;
@@ -71,6 +72,7 @@ public class GrapplingHook : MonoBehaviour
 
         _state = HookState.Flying;
 
+        _visual.SetActive(true);
         _flyingDirection = direction;
         transform.position = _origin.position;
 
@@ -121,6 +123,7 @@ public class GrapplingHook : MonoBehaviour
 
         _state = HookState.Idle;
 
+        _visual.SetActive(false);
         transform.position = _origin.position;
 
         _grapplingRope.Clear();

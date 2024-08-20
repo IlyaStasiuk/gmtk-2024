@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grapplingRope: {fileID: 2534004592692894756}
   _origin: {fileID: 7506896364247244710}
+  _visual: {fileID: 1207891305966789149}
   _ignoredObjects:
   - {fileID: 0}
   - {fileID: 5766855484842308995}
@@ -237,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7613401840810660745
 Transform:
   m_ObjectHideFlags: 0
