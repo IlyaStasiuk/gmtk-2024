@@ -19,7 +19,7 @@ namespace Titan
         public Transform HeadPos;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
-        
+
         public SpriteRenderer NeckSpriteRenderer;
 
         [ShowNativeProperty]
@@ -42,10 +42,10 @@ namespace Titan
 
         private void Awake()
         {
-            Animator.SetFloat("speed_multiplier",1/Mathf.Sqrt(transform.localScale.y-4));
-            Hand.GetComponent<Animator>().SetFloat("speed_multiplier", 1 /( Mathf.Sqrt((transform.localScale.y-4)*2)));
+            Animator.SetFloat("speed_multiplier", 1 / Mathf.Sqrt(transform.localScale.y - 4));
+            Hand.GetComponent<Animator>().SetFloat("speed_multiplier", 1 / (Mathf.Sqrt((transform.localScale.y - 4) * 2)));
             AgroRange.OnAgro += OnAgro;
-            
+
             foreach (var weakSpot in WeakSpots)
                 weakSpot.OnPartDestroy += OnWeakSpotDie;
         }
@@ -58,7 +58,7 @@ namespace Titan
 
         private void OnAgro(PlayerTitanAttacker player)
         {
-            Debug.Log($"Titan {name} agro: {player?.name}");
+            // Debug.Log($"Titan {name} agro: {player?.name}");
             SetHandsFollowTarget(player);
         }
 
@@ -76,7 +76,7 @@ namespace Titan
             AgroRange.enabled = !isRagdoll;
             enabled = !isRagdoll;
         }
-        
+
         private void OnWeakSpotDie(float force)
         {
             if (NormalizedHealth <= 0)
@@ -85,8 +85,8 @@ namespace Titan
                 SoundManager.Instance.playSound(GetDeathSoundByScale());
                 CameraShaker.Instance.Shake(1);
 
-                Kill();
-                SuperKill();
+                bool decapitate = PlayerTitanTransformation.instance.IsTitan;
+                Kill(decapitate);
             }
         }
 
@@ -126,14 +126,20 @@ namespace Titan
         {
             Head.SetActive(false);
 
-            Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
-
+            GameObject LooseHead = Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
+            LooseHead.transform.localScale = transform.localScale;
+            Vector2 force;
+            force.x = 0;
+            force.y = 600;
+            LooseHead.GetComponent<Rigidbody2D>().AddForce(force);
         }
+
         [Button]
-        public void Kill()
+        public void Kill(bool decapitate)
         {
-            Debug.Log($"Titan {name} died");
+            // Debug.Log($"Titan {name} died");
             SetRagdoll(true);
+            if (decapitate) SuperKill();
         }
 
         [Button]

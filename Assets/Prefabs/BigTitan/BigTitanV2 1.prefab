@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 2047034933542826099}
   Hands:
   - {fileID: 3186271984752811385}
-  NeckSpriteRenderer: {fileID: 0}
+  NeckSpriteRenderer: {fileID: 1627087058501427410}
 --- !u!1001 &5935329377353416317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,6 +530,11 @@ HingeJoint2D:
 --- !u!50 &951777439619354466 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6875837843913650463, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
+  m_PrefabInstance: {fileID: 5935329377353416317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1627087058501427410 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4956798048740826799, guid: 0cc848fb2dcc39646a696bd33da93aaa, type: 3}
   m_PrefabInstance: {fileID: 5935329377353416317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1758446164570047230 stripped

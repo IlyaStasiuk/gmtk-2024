@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,11 +179,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 587482821037871290, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.044631276
+      value: -0.04462246
       objectReference: {fileID: 0}
     - target: {fileID: 587482821037871290, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.004520022
+      value: -0.0046075457
       objectReference: {fileID: 0}
     - target: {fileID: 681069557091036384, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_Name
@@ -290,24 +291,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003592987348385611, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0019416604
+      value: 0.0019414484
       objectReference: {fileID: 0}
     - target: {fileID: 5056705337054355753, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.046089508
+      value: -0.046089504
       objectReference: {fileID: 0}
     - target: {fileID: 5056705337054355753, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.00018129498
+      value: 0.00018070337
       objectReference: {fileID: 0}
     - target: {fileID: 5553496576361650072, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: deathParticles
       value: 
       objectReference: {fileID: 7346181948092945919, guid: 14d39422150da5745be440d0c5ef0170, type: 3}
-    - target: {fileID: 5553496576361650072, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
-      propertyPath: NeckSpriteRenderer
-      value: 
-      objectReference: {fileID: 1884617743}
     - target: {fileID: 5553496576361650072, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
       propertyPath: superDeathParticles
       value: 
@@ -768,11 +765,6 @@ Transform:
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2178180683073558550, guid: 574a542e8b56b804d82d71f3ecca6dca, type: 3}
   m_PrefabInstance: {fileID: 1482267728}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1884617743 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1627087058501427410, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
-  m_PrefabInstance: {fileID: 309915971}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2074112846
 PrefabInstance:
