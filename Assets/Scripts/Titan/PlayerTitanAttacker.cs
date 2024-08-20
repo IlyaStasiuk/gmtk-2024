@@ -16,6 +16,9 @@ namespace Titan
 
         public void TakeDamage(float damage, Transform attackerTransform, Vector3 PlayerDeathPositionShift)
         {
+            if (PlayerTitanTransformation.instance.IsTitan)
+                return;
+
             if (Health <= 0)
                 return;
 

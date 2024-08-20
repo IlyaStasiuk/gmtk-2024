@@ -89,6 +89,8 @@ public class GrapplingSpring : MonoBehaviour
         _springJoint.frequency = _launchSpeed;
         _springJoint.enabled = true;
 
+        Debug.DrawLine(_targetRigidbody.position, _grapplePoint.position, Color.red);
+
         // float speed = _targetRigidbody.velocity.magnitude;
         // Vector2 direction = ((Vector2)_grapplePoint.position - _targetRigidbody.position).normalized;
         // _targetRigidbody.velocity = direction * speed;

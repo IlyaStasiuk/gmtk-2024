@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnData:
     prefabs:
-    - {fileID: 0}
+    - {fileID: 681069557091036384, guid: 081ce0bd474d068488ee2fe44290d0e9, type: 3}
     minScale: 5
     maxScale: 20
     scaleProbability:

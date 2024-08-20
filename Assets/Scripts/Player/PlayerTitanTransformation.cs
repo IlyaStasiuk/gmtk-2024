@@ -20,12 +20,14 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     [SerializeField] float _toTitanSpeedThreshold = 50f;
     [SerializeField] float _maxTitanDuration = 5f;
+    [SerializeField] float _transformDelay = 1f;
 
 
     public static PlayerTitanTransformation instance;
     public bool IsTitan => _isTitan;
 
     float _transformationBeginTime;
+    float _transformationEndTime;
     bool _transformInProgress;
     bool _isTitan;
 
@@ -67,51 +69,42 @@ public class PlayerTitanTransformation : MonoBehaviour
         {
             if (IsTitan)
             {
-                if (elapsedTime > _maxTitanDuration)
+                bool keyUp = !Input.GetKey(KeyCode.LeftShift);
+                bool timeUp = elapsedTime > _maxTitanDuration;
+                bool speedLow = _rigidbody.velocity.magnitude < _toTitanSpeedThreshold;
+                if (keyUp || timeUp || speedLow)
                 {
                     TransformToHuman();
                 }
             }
             else
             {
-                if (Input.GetKey(KeyCode.LeftShift))
+                // Debug.Log("Speed: " + _rigidbody.velocity.magnitude);
+                bool keyDown = Input.GetKey(KeyCode.LeftShift);
+                bool canTransform = Time.time > _transformationEndTime + _transformDelay;
+                bool hasEnoughtSpeed = _rigidbody.velocity.magnitude > _toTitanSpeedThreshold;
+                if (keyDown && canTransform && hasEnoughtSpeed)
                 {
-                    // Debug.Log("Speed: " + _rigidbody.velocity.magnitude);
-                    if (_rigidbody.velocity.magnitude > _toTitanSpeedThreshold)
-                    {
-                        TransformToTitan();
-                    }
+                    TransformToTitan();
                 }
             }
         }
     }
 
-    public void TransformToTitan()
+    public void OnTitanHit(GameObject titan)
+    {
+        // if (IsTitan)
+        // {
+        //     TransformToHuman();
+        // }
+    }
+
+    void TransformToTitan()
     {
         _isTitan = true;
         _transformationBeginTime = Time.time;
         _transformInProgress = true;
-        StartTransformToTitan();
-    }
 
-    public void TransformToHuman()
-    {
-        _isTitan = false;
-        _transformationBeginTime = Time.time;
-        _transformInProgress = true;
-        StartTransformToHuman();
-    }
-
-    public void OnTitanHit(GameObject titan)
-    {
-        if (IsTitan)
-        {
-            TransformToHuman();
-        }
-    }
-
-    void StartTransformToTitan()
-    {
         if (_toTitanEffect != null)
         {
             GameObject effect = Instantiate(_toTitanEffect, transform.position, Quaternion.identity);
@@ -130,10 +123,15 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToTitan()
     {
+        _transformationEndTime = Time.time;
     }
 
-    void StartTransformToHuman()
+    void TransformToHuman()
     {
+        _isTitan = false;
+        _transformationBeginTime = Time.time;
+        _transformInProgress = true;
+
         if (_toHumanEffect != null)
         {
             GameObject effect = Instantiate(_toHumanEffect, transform.position, Quaternion.identity);
@@ -152,5 +150,6 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToHuman()
     {
+        _transformationEndTime = Time.time;
     }
 }

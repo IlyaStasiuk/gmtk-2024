@@ -20,6 +20,9 @@ public class GrapplingGun : MonoBehaviour
 
     void Update()
     {
+        if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingSping.Grapple();
+        else _grapplingSping.EndGrapple();
+
         if (SceneRestarter.instance.IsInDeathZone)
         {
             if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
@@ -53,9 +56,6 @@ public class GrapplingGun : MonoBehaviour
         {
             if (Input.GetKeyDown(Button) || Input.GetKeyUp(Button)) _grapplingHook.Retract();
         }
-
-        if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingSping.Grapple();
-        else _grapplingSping.EndGrapple();
     }
 
     void RotateGun(Vector3 lookPoint, bool allowRotationOverTime)
