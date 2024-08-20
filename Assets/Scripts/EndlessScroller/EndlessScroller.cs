@@ -82,8 +82,8 @@ public class EndlessScroller : MonoBehaviour
 
     private void Awake()
     {
-        nextSpawnPointLeft = -RandomNextDistance();
-        nextSpawnPointRight = RandomNextDistance();
+        nextSpawnPointLeft = -RandomNextDistance() / 2f;
+        nextSpawnPointRight = RandomNextDistance() / 2f;
     }
 
     private void Update()
