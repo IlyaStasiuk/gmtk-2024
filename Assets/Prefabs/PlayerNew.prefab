@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 992298825107188912}
   - component: {fileID: 7058166759121101506}
   - component: {fileID: 3560590045141981053}
+  - component: {fileID: 6056074209915598278}
   m_Layer: 6
   m_Name: PlayerNew
   m_TagString: Player
@@ -417,6 +418,18 @@ MonoBehaviour:
   _grapplingGunRight: {fileID: 8064380123911072901}
   _dashForceMultiplier: 50
   _maxSpeedToDash: -3
+--- !u!114 &6056074209915598278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386308992846204692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342dfefdfbc679b4aa5f76e975bdb302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6685693640471927049
 GameObject:
   m_ObjectHideFlags: 0
