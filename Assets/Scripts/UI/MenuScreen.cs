@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,10 @@ namespace Menu
 {
     public class MenuScreen : MonoBehaviour
     {
-        //Singleton
+        public event Action OnStartGame;
+        public event Action OnPause;
+        public event Action OnResume;
+
         private static MenuScreen _instance;
         public static MenuScreen Instance
         {
@@ -21,6 +25,27 @@ namespace Menu
                 }
 
                 return _instance;
+            }
+        }
+
+        private bool _isPaused;
+
+        public bool IsPaused
+        {
+            get => _isPaused;
+            set
+            {
+                _isPaused = value;
+                if (_isPaused)
+                {
+                    Time.timeScale = 0;
+                    OnPause?.Invoke();
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                    OnResume?.Invoke();
+                }
             }
         }
 
@@ -57,30 +82,36 @@ namespace Menu
 
         private void Start()
         {
-            Time.timeScale = 0;
+            IsPaused = true;
             SoundManager.Instance.playMenuMusic();
             musicVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setMusicVolume);
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
-            GameUI.SetScoreInstant(0);
         }
 
 
         [Button]
         public void startGame()
         {
-            Time.timeScale = 1;
+            GameUI.SetScoreInstant(0);
+
             SoundManager.Instance.fadeToGameMusic();
             canvasGroup.blocksRaycasts = false;
             Sequence sequence = DOTween.Sequence().SetUpdate(true);
             sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart).SetUpdate(true));
             screenGameGUI.anchoredPosition = new Vector2(-2560, screenGameGUI.anchoredPosition.y);
-            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true));
+            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true))
+                .AppendCallback(() =>
+                {
+                    IsPaused = false;
+                    OnStartGame?.Invoke();
+                })
+                .Play();
         }
 
         [Button]
         public void showAfterLost()
         {
-            Time.timeScale = 0;
+            IsPaused = true;
             SoundManager.Instance.fadeToMenuMusic();
             canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1.0f;
