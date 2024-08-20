@@ -6,6 +6,7 @@ public class SceneRestarter : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float deathAltitude;
+    [SerializeField] private GameObject deathParticles;
     [SerializeField] private float restartAfterTimeInDeathZone = 1.0f;
 
     private bool isInDeathZone = false;
@@ -20,7 +21,7 @@ public class SceneRestarter : MonoBehaviour
     {
         isInDeathZone = true;
     }
-    
+
     private void Awake()
     {
         instance = this;
@@ -28,10 +29,18 @@ public class SceneRestarter : MonoBehaviour
 
     private void LateUpdate()
     {
-        if ((target.transform.position.y > deathAltitude) && !isInDeathZone)
+        bool higherThanDeathAltitude = target.position.y > deathAltitude;
+
+        if (higherThanDeathAltitude && !isInDeathZone)
             return;
 
+        if (!higherThanDeathAltitude && !isInDeathZone)
+        {
+            Instantiate(deathParticles, target.position, Quaternion.identity);
+        }
+
         isInDeathZone = true;
+
         durationInDeathZone += Time.deltaTime;
 
         if (durationInDeathZone > restartAfterTimeInDeathZone)

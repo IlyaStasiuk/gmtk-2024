@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   deathAltitude: -18
+  deathParticles: {fileID: 9102735878886471443, guid: 4d24616d7da9d5b4bb6c2065a669c8b5, type: 3}
   restartAfterTimeInDeathZone: 1.5
 --- !u!114 &4566819466502147530
 MonoBehaviour:
