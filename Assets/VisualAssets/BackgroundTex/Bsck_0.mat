@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bsck_0
-  m_Shader: {fileID: 4800000, guid: e245967cc1b16a74091f69073af82187, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9eda3bd5fb9019d4ca00bf90c986b14a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -73,11 +73,11 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 0
     - _Parallax: 0.02
-    - _Scale: -0.11
+    - _Scale: -0.015
     - _Slide: -1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.1
+    - _Speed: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
