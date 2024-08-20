@@ -178,7 +178,7 @@ public class GrapplingHook : MonoBehaviour
                     Debug.DrawLine(_origin.position, hit.point, Color.red, 1f);
                 }
 
-                bool layerCheck = ((1 << hit.transform.gameObject.layer) & (int)_grappableLayers) != 0;
+                bool layerCheck = ((1 << hit.collider.gameObject.layer) & (int)_grappableLayers) != 0;
                 if (!layerCheck) validHit = false;
             }
 
