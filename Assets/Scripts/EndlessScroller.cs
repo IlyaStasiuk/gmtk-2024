@@ -15,9 +15,18 @@ struct ScrollerInstance
     }
 }
 
+[Serializable]
+struct SpawnData
+{
+    public List<GameObject> prefabs;
+    public float minScale;
+    public float maxScale;
+    public AnimationCurve scaleProbability;
+}
+
 public class EndlessScroller : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private SpawnData spawnData;
     [SerializeField] private float spawnIntervalMin;
     [SerializeField] private float spawnIntervalMax;
     [SerializeField] private float spawnOffset;
@@ -48,7 +57,15 @@ public class EndlessScroller : MonoBehaviour
     private void SpawnInstance(float positionX)
     {
         Vector3 position = new(positionX, altitude, 0);
+
+        float scaleNormalized = spawnData.scaleProbability.Evaluate(Random.value);
+        float scale = FloatUtils.MapRange(scaleNormalized, 0f, 1f, spawnData.minScale, spawnData.maxScale);
+
+        GameObject prefab = spawnData.prefabs[Random.Range(0, spawnData.prefabs.Count)];
+
         GameObject instance = Instantiate(prefab, position, Quaternion.identity);
+        instance.transform.localScale = new Vector3(scale, scale, 1);
+
         instances.Add(new ScrollerInstance(instance));
     }
 
