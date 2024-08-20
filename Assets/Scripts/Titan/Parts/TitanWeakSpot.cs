@@ -8,12 +8,13 @@ namespace Titan
 {
     public class TitanWeakSpot : MonoBehaviour, IDestroyableTitanPart
     {
-        public event Action OnPartDestroy;
+        public event Action<float> OnPartDestroy;
 
         [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private float _maxHealth = 100f;
         [SerializeField] private float _health = 100f;
+        [SerializeField] private float _minForceToTakeDamage = 40f;
 
         public float MaxHealth => _maxHealth;
         public float Health => _health;
@@ -24,8 +25,11 @@ namespace Titan
             _health = _maxHealth;
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, float force)
         {
+            if (force < _minForceToTakeDamage)
+                return;
+
             if (_health <= 0)
                 return;
 
@@ -33,14 +37,14 @@ namespace Titan
             PlayHitAnimation();
             if (Health <= 0)
             {
-                Die();
+                Die(force);
             }
         }
 
-        private void Die()
+        private void Die(float force)
         {
             PlayDieAnimation();
-            OnPartDestroy?.Invoke();
+            OnPartDestroy?.Invoke(force);
         }
 
         [Button]
@@ -48,7 +52,7 @@ namespace Titan
         {
             _spriteRenderer.DOFlashAnimation().Play();
         }
-        
+
         private void PlayDieAnimation()
         {
             _animator.SetTrigger("Destroy");

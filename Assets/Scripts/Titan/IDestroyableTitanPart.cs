@@ -5,9 +5,9 @@ namespace Titan
 {
     public interface IDestroyableTitanPart
     {
-        event Action OnPartDestroy;
+        event Action<float> OnPartDestroy;
 
-        void TakeDamage(float damage);
+        void TakeDamage(float damage, float force);
         float MaxHealth { get; }
         float Health { get; }
         float NormalizedHealth { get; }

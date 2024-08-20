@@ -34,7 +34,7 @@ namespace Titan
             if (SceneRestarter.instance.IsInDeathZone)
                 return;
 
-            Debug.Log("Player died");
+            // Debug.Log("Player died");
             PlayerRoot.simulated = false;
             if (attackerTransform != null)
             {
@@ -58,8 +58,8 @@ namespace Titan
                 var weakSpot = other.GetComponent<TitanWeakSpot>();
                 if (weakSpot != null)
                 {
-                    Debug.Log($"Player hit weak spot ({weakSpot.name}) of titan {other.name}");
-                    weakSpot.TakeDamage(Damage);
+                    // Debug.Log($"Player hit weak spot ({weakSpot.name}) of titan {other.name}");
+                    weakSpot.TakeDamage(Damage, PlayerRoot.velocity.magnitude);
 
                     OnHit.Invoke(other.gameObject);
                 }

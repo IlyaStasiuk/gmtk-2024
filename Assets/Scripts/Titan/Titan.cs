@@ -57,7 +57,7 @@ namespace Titan
 
         private void OnAgro(PlayerTitanAttacker player)
         {
-            Debug.Log($"Titan {name} agro: {player?.name}");
+            // Debug.Log($"Titan {name} agro: {player?.name}");
             SetHandsFollowTarget(player);
         }
 
@@ -76,7 +76,7 @@ namespace Titan
             enabled = !isRagdoll;
         }
 
-        private void OnWeakSpotDie()
+        private void OnWeakSpotDie(float force)
         {
             // NeckSpriteRenderer.DOColor(Color.red, 0.5f)
             //     .SetLoops(2, LoopType.Yoyo)
@@ -87,8 +87,8 @@ namespace Titan
             {
                 SoundManager.Instance.playSound(GetDeathSoundByScale());
 
-                Kill();
-                if (PlayerTitanTransformation.instance.IsTitan) SuperKill();
+                bool decapitate = PlayerTitanTransformation.instance.IsTitan;
+                Kill(decapitate);
             }
         }
 
@@ -115,12 +115,14 @@ namespace Titan
 
         }
         [Button]
-        public void Kill()
+        public void Kill(bool decapitate)
         {
 
-            Debug.Log($"Titan {name} died");
+            // Debug.Log($"Titan {name} died");
 
             SetRagdoll(true);
+
+            if (decapitate) SuperKill();
         }
 
         [Button]
