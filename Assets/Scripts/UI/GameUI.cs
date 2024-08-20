@@ -1,7 +1,10 @@
+using System;
 using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameUI : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class GameUI : MonoBehaviour
     [SerializeField] private Color _scoreTweenColorMediumTitan = new Color(1f, 0.78f, 0f);
     [SerializeField] private Color _scoreTweenColorBigTitan = new Color(1f, 0.2f, 0f);
 
+    [SerializeField] private Slider _speedSlider;
+    [SerializeField] private RectTransform _sliderRoot;
+    [SerializeField] private Image _sliderFill;
+    [SerializeField] private float _speedSliderAnimDuration = 0.2f;
+    [SerializeField] private float _speedSliderAnimScale = 1.1f;
+    [SerializeField] private Image _canKillTitanOverlay;
+    // [SerializeField] private TextMeshProUGUI _speedText;
 
     private int _realScore;
     private int _tweenedScore;
@@ -31,6 +41,13 @@ public class GameUI : MonoBehaviour
         };
 
         TweenScore(_realScore + score, color);
+        TweenSliderOnKill();
+    }
+    
+    private void TweenSliderOnKill()
+    {
+         _sliderRoot.DOPunchScale(Vector3.one * _speedSliderAnimScale, 0.2f).SetUpdate(true);
+         _sliderRoot.DOShakeRotation(1.0f, new Vector3(0, 0, _speedSliderAnimScale)).SetUpdate(true);
     }
 
     public void SetScoreInstant(int score)
@@ -79,5 +96,18 @@ public class GameUI : MonoBehaviour
     private void CheatAddScore()
     {
         AddScore(100);
+    }
+
+    public void Update()
+    {
+        _speedSlider.normalizedValue = PlayerContext.instance.Speed / PlayerContext.SpeedToKillTitan;
+        _sliderFill.color = Color.Lerp(Color.white, new Color(0f, 0.39f, 1f), _speedSlider.value);
+
+        ShowCanKillTitanOverlay(_speedSlider.normalizedValue >= 0.99f);
+    }
+
+    public void ShowCanKillTitanOverlay(bool show)
+    {
+        _canKillTitanOverlay.gameObject.SetActive(show);
     }
 }
