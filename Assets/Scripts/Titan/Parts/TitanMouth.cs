@@ -66,7 +66,7 @@ namespace Titan
         {
             //play sound with 20% chance
             if (UnityEngine.Random.Range(0, 5) == 0)
-                SoundManager.Instance.playSoundRandom(SoundType.TITAN_SCREAM_1, SoundType.TITAN_SCREAM_2, SoundType.TITAN_SCREAM_3);
+                SoundManager.Instance.playSoundRandom(SoundType.TITAN_SCREAM_3);
 
             _canApplyDamage = true;
             Animator.SetTrigger("Open");

@@ -64,7 +64,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: db7d81ef2c0fdce4f8bcb49a4fc5c549, type: 3}
   - soundType: 7
     audioClip: {fileID: 8300000, guid: 2606cd4c6fdf9524da65ad01205e7133, type: 3}
-  - soundType: 7
+  - soundType: 8
     audioClip: {fileID: 8300000, guid: 4ec4db545c483a648bb1e4a96a4077db, type: 3}
   - soundType: 9
     audioClip: {fileID: 8300000, guid: 5b1ef61eeb38c5b428b52a0a57770323, type: 3}
@@ -76,6 +76,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 1fdc43c1ff8dcbf4fbebdf260b27d02f, type: 3}
   - soundType: 13
     audioClip: {fileID: 8300000, guid: bb9bc1d087e532443befd7a3c3579c42, type: 3}
+  - soundType: 14
+    audioClip: {fileID: 8300000, guid: ffa1652776a0f334fbfda1249f187077, type: 3}
   skillsAudioSource: {fileID: 3421216011511303401}
   menuAudioSource: {fileID: 3421216011511303402}
   musicAudioSource: {fileID: 3421216011511303403}

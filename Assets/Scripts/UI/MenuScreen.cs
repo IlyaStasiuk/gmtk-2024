@@ -57,6 +57,7 @@ namespace Menu
         [SerializeField] private RectTransform screenCredits;
         [SerializeField] private RectTransform screenSettings;
         [SerializeField] private RectTransform screenGameGUI;
+        [SerializeField] private ComicsScreen comicsScreen;
         [SerializeField] public GameUI GameUI;
 
         [Header("Screen Settings")]
@@ -72,6 +73,9 @@ namespace Menu
         [Header("Tween Settings")]
         [SerializeField] private float tweenDuration = 2.0f;
         [SerializeField] private Ease tweenEase = Ease.InOutQuad;
+
+        private int _comicsShownTimes = 0;
+        private int _comicsMaxShownTimes = 3;
 
         private void Awake()
         {
@@ -99,13 +103,18 @@ namespace Menu
             Sequence sequence = DOTween.Sequence().SetUpdate(true);
             sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart).SetUpdate(true));
             screenGameGUI.anchoredPosition = new Vector2(-2560, screenGameGUI.anchoredPosition.y);
-            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true))
-                .AppendCallback(() =>
-                {
-                    IsPaused = false;
-                    OnStartGame?.Invoke();
-                })
-                .Play();
+            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true));
+            
+            if (_comicsShownTimes < _comicsMaxShownTimes)
+            {
+                sequence.Append(comicsScreen.ShowComicsScreen().OnComplete(() => _comicsShownTimes++));
+            }
+
+            sequence.OnComplete(() =>
+            {
+                IsPaused = false;
+                OnStartGame?.Invoke();
+            });
         }
 
         [Button]
