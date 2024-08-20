@@ -77,6 +77,8 @@ namespace Menu
         private static int _comicsShownTimes = 0;
         private static int _comicsMaxShownTimes = 1;
 
+        private static bool _isFirstTime = true;
+
         private void Awake()
         {
             _instance = this;
@@ -92,10 +94,18 @@ namespace Menu
             sfxVolumeSlider.onValueChanged.AddListener(SoundManager.Instance.setSFXVolume);
 
             comicsScreen.gameObject.SetActive(false);
-            musicVolumeSlider.value = musicVolumeSlider.maxValue * 0.65f;
-            sfxVolumeSlider.value = sfxVolumeSlider.maxValue * 0.5f;
+            InitSoundValue();
         }
 
+        private void InitSoundValue()
+        {
+            if (!_isFirstTime)
+                return;
+
+            musicVolumeSlider.normalizedValue = 0.65f;
+            sfxVolumeSlider.normalizedValue = 0.5f;
+            _isFirstTime = false;
+        }
 
         [Button]
         public void startGame()
@@ -107,7 +117,7 @@ namespace Menu
             Sequence sequence = DOTween.Sequence().SetUpdate(true);
             sequence.Append(canvasGroup.DOFade(0.0f, tweenDuration).SetEase(Ease.InQuart).SetUpdate(true));
             screenGameGUI.anchoredPosition = new Vector2(-2560, screenGameGUI.anchoredPosition.y);
-            sequence.Append(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true));
+            sequence.Join(screenGameGUI.DOAnchorPosX(0, tweenDuration).SetEase(tweenEase).SetUpdate(true));
             
             if (_comicsShownTimes < _comicsMaxShownTimes)
             {

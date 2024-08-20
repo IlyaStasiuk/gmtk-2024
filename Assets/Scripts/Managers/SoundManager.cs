@@ -85,8 +85,8 @@ public class SoundManager : MonoBehaviour
 
     private void fadeMusic(SoundType end_music)
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(musicAudioSource.DOFade(0.0f, 0.3f));
+        Sequence sequence = DOTween.Sequence().SetUpdate(true);
+        sequence.Append(musicAudioSource.DOFade(0.0f, 0.3f).SetUpdate(true));
         sequence.AppendCallback(musicAudioSource.Stop);
         sequence.AppendCallback(() => 
             {
@@ -94,7 +94,8 @@ public class SoundManager : MonoBehaviour
                 musicAudioSource.Play();
             }
         );
-        sequence.Append(musicAudioSource.DOFade(1.0f, 1.7f));
+        sequence.Append(musicAudioSource.DOFade(1.0f, 1.7f).SetUpdate(true));
+        sequence.SetUpdate(true);
         sequence.Play();
     }
 
