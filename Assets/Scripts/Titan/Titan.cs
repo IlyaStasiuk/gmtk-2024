@@ -3,6 +3,7 @@ using System.Linq;
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.LowLevel;
 
 
 namespace Titan
@@ -18,7 +19,6 @@ namespace Titan
         public Transform HeadPos;
         public List<TitanWeakSpot> WeakSpots;
         public List<TitanHand> Hands;
-
         public SpriteRenderer NeckSpriteRenderer;
 
         [ShowNativeProperty]
@@ -108,12 +108,18 @@ namespace Titan
 
             GameObject LooseHead = Instantiate(SeverdHead, HeadPos.position, HeadPos.rotation);
             LooseHead.transform.localScale = transform.localScale;
+            Vector2 force;
+            force.x = 0;
+            force.y = 600;
+            LooseHead.GetComponent<Rigidbody2D>().AddForce(force);
 
         }
         [Button]
         public void Kill()
         {
+
             Debug.Log($"Titan {name} died");
+
             SetRagdoll(true);
         }
 
