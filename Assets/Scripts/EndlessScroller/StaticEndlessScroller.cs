@@ -26,8 +26,6 @@ public class StaticEndlessScroller : MonoBehaviour
         int currentMiddleCoord = (int)Mathf.Floor(normalizedCoordinate);
         // if (normalizedCoordinate < 0f) currentMiddleIndex++;
 
-        Debug.Log(currentMiddleCoord);
-
         for (int i = 0; i < _instances.Length; i++)
         {
             int currentCoord = currentMiddleCoord + i;
