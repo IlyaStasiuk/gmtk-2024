@@ -34,7 +34,8 @@ public class PlayerDash : MonoBehaviour
         {
             if (!_isDashing && !_dashIsUsed)
             {
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space) && !Menu.MenuScreen.Instance.IsPaused)
+
                 {
                     float speedInDirectionOfDash = Vector2.Dot(_rb.velocity, _dashDirection);
                     // Debug.Log("Rb velocity: " + _rb.velocity + "Dash direction: " + _dashDirection + "Speed in direction of dash: " + speedInDirectionOfDash);
@@ -48,7 +49,7 @@ public class PlayerDash : MonoBehaviour
 
         if (_isDashing)
         {
-            if (!Input.GetKey(KeyCode.Space))
+            if (!Input.GetKey(KeyCode.Space) && !Menu.MenuScreen.Instance.IsPaused)
             {
                 EndDash();
             }

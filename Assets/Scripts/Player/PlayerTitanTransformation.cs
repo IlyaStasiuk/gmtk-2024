@@ -61,7 +61,7 @@ public class PlayerTitanTransformation : MonoBehaviour
         {
             if (IsTitan)
             {
-                bool keyUp = !Input.GetKey(KeyCode.LeftShift);
+                bool keyUp = !Input.GetKey(KeyCode.LeftShift) && !Menu.MenuScreen.Instance.IsPaused;
                 bool timeUp = elapsedTime > _maxTitanDuration;
                 bool speedLow = _rigidbody.velocity.magnitude < _toTitanSpeedThreshold;
                 if (keyUp || timeUp || speedLow) TransformToHuman();
@@ -69,7 +69,7 @@ public class PlayerTitanTransformation : MonoBehaviour
             else
             {
                 // Debug.Log("Speed: " + _rigidbody.velocity.magnitude);
-                bool keyDown = Input.GetKey(KeyCode.LeftShift);
+                bool keyDown = Input.GetKey(KeyCode.LeftShift) && !Menu.MenuScreen.Instance.IsPaused;
                 bool canTransform = Time.time > _transformationEndTime + _transformDelay;
                 bool hasEnoughtSpeed = _rigidbody.velocity.magnitude > _toTitanSpeedThreshold;
                 if (keyDown && canTransform && hasEnoughtSpeed) TransformToTitan();

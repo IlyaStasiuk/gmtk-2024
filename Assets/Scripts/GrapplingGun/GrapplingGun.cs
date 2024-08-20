@@ -41,29 +41,32 @@ public class GrapplingGun : MonoBehaviour
         if (_grapplingHook.State == GrapplingHook.HookState.Idle) RotateGun(mousePosition, true);
         else RotateGun(_grapplingHook.transform.position, true);
 
-        if (_allowHookByClick)
+        if (!Menu.MenuScreen.Instance.IsPaused)
         {
-            if (Input.GetKeyDown(Button))
+            if (_allowHookByClick)
             {
-                _target = mousePosition;
-            }
+                if (Input.GetKeyDown(Button))
+                {
+                    _target = mousePosition;
+                }
 
-            if (Input.GetKeyDown(Button) || Input.GetKeyUp(Button))
-            {
-                if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
-            }
+                if (Input.GetKeyDown(Button) || Input.GetKeyUp(Button))
+                {
+                    if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+                }
 
-        }
-        else
-        {
-            if (Input.GetKeyDown(Button))
-            {
-                if (_grapplingHook.State == GrapplingHook.HookState.Idle) _target = mousePosition;
             }
-
-            if (!Input.GetKey(Button))
+            else
             {
-                if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+                if (Input.GetKeyDown(Button))
+                {
+                    if (_grapplingHook.State == GrapplingHook.HookState.Idle) _target = mousePosition;
+                }
+
+                if (!Input.GetKey(Button))
+                {
+                    if (_grapplingHook.State == GrapplingHook.HookState.Grappled) _grapplingHook.Retract();
+                }
             }
         }
 
