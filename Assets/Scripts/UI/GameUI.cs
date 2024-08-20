@@ -48,6 +48,7 @@ public class GameUI : MonoBehaviour
     {
          _sliderRoot.DOPunchScale(Vector3.one * _speedSliderAnimScale, 0.2f).SetUpdate(true);
          _sliderRoot.DOShakeRotation(1.0f, new Vector3(0, 0, _speedSliderAnimScale)).SetUpdate(true);
+         _canKillTitanOverlay.transform.DOPunchScale(Vector3.one * _speedSliderAnimScale, 0.2f).SetUpdate(true);
     }
 
     public void SetScoreInstant(int score)
@@ -101,7 +102,7 @@ public class GameUI : MonoBehaviour
     public void Update()
     {
         _speedSlider.normalizedValue = PlayerContext.instance.Speed / PlayerContext.SpeedToKillTitan;
-        _sliderFill.color = Color.Lerp(Color.white, new Color(0f, 0.39f, 1f), _speedSlider.value);
+        _sliderFill.color = Color.Lerp(Color.white, new Color(1f, 0.91f, 0.02f), _speedSlider.normalizedValue);
 
         ShowCanKillTitanOverlay(_speedSlider.normalizedValue >= 0.99f);
     }
