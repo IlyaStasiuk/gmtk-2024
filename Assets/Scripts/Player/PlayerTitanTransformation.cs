@@ -87,7 +87,7 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void TransformToTitan()
     {
-        Debug.Log("TransformToTitan");
+        // Debug.Log("TransformToTitan");
 
         _isTitan = true;
         _transformInProgressIsTitan = true;
@@ -114,7 +114,7 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToTitan()
     {
-        Debug.Log("FinishTransformToTitan");
+        // Debug.Log("FinishTransformToTitan");
 
         _transformationEndTime = Time.time;
         _transformInProgress = false;
@@ -122,7 +122,7 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void TransformToHuman()
     {
-        Debug.Log("TransformToHuman");
+        // Debug.Log("TransformToHuman");
 
         _transformInProgressIsTitan = false;
         _transformationBeginTime = Time.time;
@@ -148,7 +148,7 @@ public class PlayerTitanTransformation : MonoBehaviour
 
     void FinishTransformToHuman()
     {
-        Debug.Log("FinishTransformToHuman");
+        // Debug.Log("FinishTransformToHuman");
 
         _isTitan = false;
         _transformationEndTime = Time.time;
